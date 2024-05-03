@@ -11,6 +11,9 @@
     <Filter Include="Sources\Pch">
       <UniqueIdentifier>{8b6fdfea-0144-4be6-8355-8839b2fdcda0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Thread">
+      <UniqueIdentifier>{4dcc60c8-2d5e-4473-b366-08c8698e4a1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Global\ServerHelper.h">
@@ -18,6 +21,12 @@
     </ClInclude>
     <ClInclude Include="Sources\Pch\Pch.h">
       <Filter>Sources\Pch</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Thread\RxThreadPool.h">
+      <Filter>Sources\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources\Thread\RxTls.h">
+      <Filter>Sources\Thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +38,12 @@
     </ClCompile>
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <Filter>Sources\Pch</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Thread\RxThreadPool.cpp">
+      <Filter>Sources\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Thread\RxTls.cpp">
+      <Filter>Sources\Thread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

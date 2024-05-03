@@ -10,6 +10,7 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include <future>
 #include <memory>
 #include <string>
 #include <vector>
