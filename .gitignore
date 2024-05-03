@@ -368,4 +368,4 @@ Server/Intermediates/
 DummyClient/Intermediates/
 
 # Binaries
-*.idb
+Binaries/*.idb
