@@ -11,7 +11,7 @@ int main()
 	}
 
 	// 클라이언트 소켓 생성
-	SOCKET clientSocket = ::socket(AF_INET, SOCK_STREAM, 0);
+	SOCKET clientSocket = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (clientSocket == INVALID_SOCKET)
 	{
 		Rx::PrintServerLastErrorCode();
@@ -25,28 +25,21 @@ int main()
 	serverAddr.sin_port = ::htons(7777);
 	::inet_pton(AF_INET, "127.0.0.1", &serverAddr.sin_addr);
 
-	// 서버로 연결 시도
-	if (::connect(clientSocket, reinterpret_cast<sockaddr*>(&serverAddr), sizeof(SOCKADDR_IN)) == SOCKET_ERROR)
-	{
-		Rx::PrintServerLastErrorCode();
-		return 0;
-	}
-
-	printf("Connected To Server!\n");
-
 	while (true)
 	{
 		// 서버로 데이터 송신
 		char sendBuffer[100] = "Hello! I am Client";
-		if (::send(clientSocket, sendBuffer, sizeof(sendBuffer), 0) == SOCKET_ERROR)
+		if (::sendto(clientSocket, sendBuffer, sizeof(sendBuffer), 0, reinterpret_cast<SOCKADDR*>(&serverAddr), sizeof(SOCKADDR_IN)) == SOCKET_ERROR)
 		{
 			Rx::PrintServerLastErrorCode();
 			return 0;
 		}
 
+		int addrLen = sizeof(SOCKADDR_IN);
+
 		// 서버로부터 데이터 수신
 		char recvBuffer[100];
-		int recvLen = ::recv(clientSocket, recvBuffer, sizeof(recvBuffer), 0);
+		int recvLen = ::recvfrom(clientSocket, recvBuffer, sizeof(recvBuffer), 0, reinterpret_cast<SOCKADDR*>(&serverAddr), &addrLen);
 		if (recvLen <= 0)
 		{
 			Rx::PrintServerLastErrorCode();

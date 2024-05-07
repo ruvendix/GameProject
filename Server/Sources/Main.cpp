@@ -11,7 +11,7 @@ int main()
 	}
 
 	// 서버 소켓을 TCP로 생성
-	SOCKET serverSocket = ::socket(AF_INET, SOCK_STREAM, 0);
+	SOCKET serverSocket = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	if (serverSocket == INVALID_SOCKET)
 	{
 		Rx::PrintServerLastErrorCode();
@@ -32,26 +32,11 @@ int main()
 		return 0;
 	}
 
-	// 서버 작동 개시
-	if (::listen(serverSocket, SOMAXCONN) == SOCKET_ERROR)
-	{
-		Rx::PrintServerLastErrorCode();
-		return 0;
-	}
-
 	while (true)
 	{
 		SOCKADDR_IN clientAddr;
 		::ZeroMemory(&clientAddr, sizeof(SOCKADDR_IN));
 		int addrLen = sizeof(SOCKADDR_IN);
-
-		// 아무 클라이언트가 접속하기를 기다림
-		SOCKET clientSocket = ::accept(serverSocket, reinterpret_cast<sockaddr*>(&clientAddr), &addrLen);
-		if (clientSocket == INVALID_SOCKET)
-		{
-			Rx::PrintServerLastErrorCode();
-			return 0;
-		}
 
 		char ip[16]; // 접속한 클라이언트의 ip 정보 알아내기
 		if (inet_ntop(AF_INET, &clientAddr.sin_addr, ip, sizeof(ip)) == nullptr)
@@ -60,28 +45,22 @@ int main()
 			return 0;
 		}
 
-		printf("Client Connected! IP = %s\n", ip);
-
-		// 접속한 클라이언트와 통신
-		while (true)
+		char recvBuffer[100]; // 클라이언트가 보낸 데이터를 수신
+		int recvLen = ::recvfrom(serverSocket, recvBuffer, sizeof(recvBuffer), 0, reinterpret_cast<SOCKADDR*>(&clientAddr), &addrLen);
+		if (recvLen <= 0)
 		{
-			char recvBuffer[100]; // 클라이언트가 보낸 데이터를 수신
-			int recvLen = ::recv(clientSocket, recvBuffer, sizeof(recvBuffer), 0);
-			if (recvLen <= 0)
-			{
-				Rx::PrintServerLastErrorCode();
-				return 0;
-			}
+			Rx::PrintServerLastErrorCode();
+			return 0;
+		}
 
-			printf("Recv Data: %s\n", recvBuffer);
-			printf("Recv Data Len: %d\n", recvLen);
+		printf("Recv Data: %s\n", recvBuffer);
+		printf("Recv Data Len: %d\n", recvLen);
 
-			// 수신한 데이터를 다시 클라이언트로 보냄
-			if (::send(clientSocket, recvBuffer, sizeof(recvBuffer), 0) == SOCKET_ERROR)
-			{
-				Rx::PrintServerLastErrorCode();
-				return 0;
-			}
+		// 수신한 데이터를 다시 클라이언트로 보냄
+		if (::sendto(serverSocket, recvBuffer, sizeof(recvBuffer), 0, reinterpret_cast<SOCKADDR*>(&clientAddr), addrLen) == SOCKET_ERROR)
+		{
+			Rx::PrintServerLastErrorCode();
+			return 0;
 		}
 	}
 
