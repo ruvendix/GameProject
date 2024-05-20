@@ -3,7 +3,7 @@
 #include "Common/Sources/CommonCore.h"
 #include "Common/Sources/CommonTypes.h"
 
-#include "ServerCore/Sources/Global/ServerHelper.h"
+#include "ServerCore/Sources/Socket/SocketUtility.h"
 
 #ifdef _DEBUG
 #pragma comment(lib, "ServerCore_Debug.lib")

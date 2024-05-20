@@ -152,20 +152,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\Global\ServerHelper.h" />
+    <ClInclude Include="Sources\Socket\SocketUtility.h" />
     <ClInclude Include="Sources\Pch\Pch.h" />
-    <ClInclude Include="Sources\Thread\RxThreadPool.h" />
-    <ClInclude Include="Sources\Thread\RxTls.h" />
+    <ClInclude Include="Sources\Thread\ThreadPool.h" />
+    <ClInclude Include="Sources\Thread\Tls.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\Global\ServerHelper.cpp" />
-    <ClCompile Include="Sources\Main.cpp" />
+    <ClCompile Include="Sources\Socket\SocketUtility.cpp" />
+    <ClCompile Include="Sources\ServerCoreMain.cpp" />
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Sources\Thread\RxThreadPool.cpp" />
-    <ClCompile Include="Sources\Thread\RxTls.cpp" />
+    <ClCompile Include="Sources\Thread\ThreadPool.cpp" />
+    <ClCompile Include="Sources\Thread\Tls.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

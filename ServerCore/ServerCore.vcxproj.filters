@@ -16,33 +16,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sources\Global\ServerHelper.h">
+    <ClInclude Include="Sources\Socket\SocketUtility.h">
       <Filter>Sources\Global</Filter>
     </ClInclude>
     <ClInclude Include="Sources\Pch\Pch.h">
       <Filter>Sources\Pch</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Thread\RxThreadPool.h">
+    <ClInclude Include="Sources\Thread\ThreadPool.h">
       <Filter>Sources\Thread</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Thread\RxTls.h">
+    <ClInclude Include="Sources\Thread\Tls.h">
       <Filter>Sources\Thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\Main.cpp">
+    <ClCompile Include="Sources\ServerCoreMain.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Global\ServerHelper.cpp">
+    <ClCompile Include="Sources\Socket\SocketUtility.cpp">
       <Filter>Sources\Global</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <Filter>Sources\Pch</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Thread\RxThreadPool.cpp">
+    <ClCompile Include="Sources\Thread\ThreadPool.cpp">
       <Filter>Sources\Thread</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Thread\RxTls.cpp">
+    <ClCompile Include="Sources\Thread\Tls.cpp">
       <Filter>Sources\Thread</Filter>
     </ClCompile>
   </ItemGroup>
