@@ -119,6 +119,11 @@ int32 RxSocketUtility::Receive(SOCKET socket, char* recvBuffer, int32 recvBuffer
 	return (::recv(socket, recvBuffer, recvBufferSize, 0));
 }
 
+int32 RxSocketUtility::Select(fd_set* pReadFds, fd_set* pWrites, fd_set* pExcepts)
+{
+	return (::select(0, pReadFds, pWrites, pExcepts, nullptr)); // 준비될 때까지 무한 대기
+}
+
 void RxSocketUtility::CloseSocket(SOCKET& inoutSocket)
 {
 	if (inoutSocket != INVALID_SOCKET)

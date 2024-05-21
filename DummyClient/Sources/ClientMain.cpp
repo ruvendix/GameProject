@@ -1,7 +1,7 @@
 #include "Pch.h"
 
 /*
-클라이언트의 TCP 소켓
+<클라이언트의 TCP 소켓>
 -socket:  소켓 생성
 -connect: 서버에 접속 시도
 
@@ -52,10 +52,16 @@ int main()
 		int32 sendLength = RxSocketUtility::Send(clientSocket, sendBuffer, sizeof(sendBuffer));
 		if (sendLength == SOCKET_ERROR)
 		{
+			int32 errorCode = ::WSAGetLastError();
+
 			// 원래는 블로킹해야 하지만 논블로킹이면 통과
-			if (::WSAGetLastError() == WSAEWOULDBLOCK)
+			if (errorCode == WSAEWOULDBLOCK)
 			{
 				continue;
+			}
+			else if (errorCode == WSAECONNRESET)
+			{
+				break;
 			}
 
 			printf("Send data length: %d (NonBlocking)\n", sendLength);

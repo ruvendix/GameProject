@@ -28,6 +28,7 @@ public:
 	static int32 Connect(SOCKET clientSocket, const SOCKADDR_IN& netAddressData);
 	static int32 Send(SOCKET socket, char* sendBuffer, int32 sendBufferSize);
 	static int32 Receive(SOCKET socket, char* recvBuffer, int32 recvBufferSize);
+	static int32 Select(fd_set* pReadFds, fd_set* pWrites, fd_set* pExcepts);
 
 	static void ModifyLinger(SOCKET socket, uint16 onOff, uint16 linger);
 	static void ModifyReuseAddress(SOCKET socket, bool bFlag);
