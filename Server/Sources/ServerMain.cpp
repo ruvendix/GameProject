@@ -1,56 +1,62 @@
 #include "Pch.h"
 
 /*
-<서버의 TCP 소켓>
--socket: 소켓 생성
--bind:   설정한 서버 주소를 적용
--listen: 서버 영업 개시
--accept: 클라가 접속하기를 기다림
+<WSAEventSelect>
+-WSAEventSelect()가 핵심!
+-생성: WSACreateEvent(Manual reset + NonSignaled 상태로 시작)
+-삭제: WSACloseEvent
+-시그널 상태 감지: WSAWaitForMultipleEvents
+-구체적인 네트워크 이벤트 알아내기: WSAEnumNetworksEvents
 
--send: 요청한 데이터를 송신 버퍼에 복사
--recv: 수신 버퍼에 도착한 데이터를 User 수준의 버퍼에 복사
+※ 소켓과 연동한 이벤트가 감지되면 그 시점에서는 관련 소켓 함수를 호출할 준비가 완료되었다는 의미! (그래도 오류 확인은 필수)
 */
 
 /*
-<Select 모델>
--select 함수가 핵심!
--소켓 Api가 성공할 시점을 미리 알 수 있음!
---recv 버퍼에 데이터가 없는데 read하는 상황
---send 버퍼가 꽉 찼는데 send하는 상황
--블로킹과 논블로킹 둘 다 가능(동기 비동기 개념이 아님!)
---블로킹 소켓: 조건이 만족되지 않아서 블로킹되는 상황 예방 (게임에서는 안씀)
---논블로킹 소켓: 조건이 만족되지 않아서 불필요하게 자주 체크하는 상황 예방
+<소켓과 이벤트 객체 연동>
+-WSAEventSelect(socket, event, networkEvents)
+-관심있는 네트워크 이벤트 목록
+--FD_ACCEPT: 접속한 클라가 있음(accept)
+--FD_READ: 데이터 수신 가능(recv, recvfrom)
+--FD_WRITE: 데이터 송신 가능(send, sendto)
+--FD_CLOSE: 상대가 접속 종료
+--FD_CONNECT: 통신을 위한 연결 절차 완료
+--FD_OOB
 */
 
 /*
-<소켓 설정 방법>
-1) read, write, except(out of band)를 관찰 대상으로 등록
---OOB는 send()에 마지막 인자로 MSG_OOB를 보내는 특별한 데이터
-  받는 쪽인 recv()에도 같은 설정을 해야 사용 가능
-2) select(read, write, except)로 관찰 시작
-3) 관찰한 것들 중에서 하나라도 준비되면 반환(낙오자는 자동 패스)
-4) 낙오자 체크해서 반복 진행
+<주의 사항>
+-WSAEventSelect()를 호출하면 해당 소켓은 자동으로 논블로킹 전환
+-accept()가 반환하는 소켓은 리슨 소켓과 같은 속성을 지님
+--따라서 클라이언트 소켓은 FD_READ, FD_WRITE 등의 재등록 필요
+--드물게 WSAEWOULDBLOCK 오류가 뜰 수 있으니 예외처리 필요
+
+<중요!>
+이벤트 발생 시 적절한 소켓 함수 호출 필요!
+그렇지 않으면 다음 번에는 동일한 네트워크 이벤트가 발생하지 않음
+ex) FD_READ 이벤트가 발생하면 recv() 호출 필요, 생략하면 더는 FD_READ 이벤트가 발생하지 않음
 */
 
 /*
-<FD(File Descriptor, 입출력 고유 식별자) 설정>
--fd는 쉽게 말하면 소켓의 식별자(관찰할 수 있는 소켓은 64개로 제한)
--fd_set 구조체를 사용
--FD_ZERO: 관찰 목록 초기화
--FD_SET: 관찰할 소켓 추가
--FD_CLR: 관찰 중인 소켓 제거
--FD_ISSET: 해당 소켓이 관찰 중이면 0이 아닌값 반환
+<WSAWaitForMultipleEvents>
+1) event
+2) waitAll: 전부 기다릴 건지? 하나만 완료되어도 패스인지?
+3) timeout: 타임아웃
+4) false로 고정
+
+반환값은 준비가 완료된 가장 앞에 있는 이벤트 객체의 인덱스
 */
 
 /*
-서버를 아무 모델로 구현해도 클라이언트는 기본 구조에서 변하지 않음
-즉, 동기 블로킹 모델이든 비동기 논블로킹 모델이든 클라이언트는 같음
+<WSAEnumNetworkEvents>
+1) socket
+2) eventObject: 소켓과 연동된 이벤트 객체 핸들을 넘겨주면 해당되는 이벤트 객체는 NonSignaled로 변경됨
+3) networkEvent: 네트워크 이벤트, 네트워크 오류 정보가 저장됨
 */
 
 const uint32 MAX_BUFFER_SIZE = 1000;
 
 // 세션(클라이언트와 서버 간의 상호작용을 편하게 만드는 보조 도구)
-struct RxClientSession
+struct RxSession
 {
 	SOCKET socket = INVALID_SOCKET;
 	char   recvBuffer[MAX_BUFFER_SIZE];
@@ -73,80 +79,101 @@ int main()
 	// 서버 영업 개시
 	RxSocketUtility::Listen(listenSocket, SOMAXCONN);
 
-	// 클라이언트 세션
-	std::vector<RxClientSession> clientSessionList;
-	clientSessionList.reserve(100);
+	// 세션과 이벤트 목록
+	std::vector<RxSession> sessionList;
+	std::vector<WSAEVENT>  wsaEvents;
+
+	// 리슨 세션
+	RxSession listenSession;
+	listenSession.socket = listenSocket;
+	sessionList.push_back(listenSession);
+
+	// 리슨 소켓을 이벤트 감지 대상으로 설정
+	WSAEVENT listenSocketEvent = ::WSACreateEvent();
+	wsaEvents.push_back(listenSocketEvent);
+
+	// 리슨 소켓을 감지할 이벤트와 연동
+	if (::WSAEventSelect(listenSocket, listenSocketEvent, FD_ACCEPT | FD_CLOSE) == SOCKET_ERROR)
+	{
+		RxSocketUtility::PrintLastErrorCode();
+		return 0;
+	}
 
 	// 클라이언트와 상호작용
 	while (true)
 	{
-		fd_set readFds;
-
-		// 관찰 소켓 목록 초기화
-		FD_ZERO(&readFds);
-
-		// 리슨 소켓 등록
-		FD_SET(listenSocket, &readFds);
-
-		// 클라이언트 소켓 등록
-		for (auto& clientSession : clientSessionList)
+		// 소켓에 이벤트가 감지될 때까지 대기
+		int32 eventObjIdx = ::WSAWaitForMultipleEvents(wsaEvents.size(), wsaEvents.data(), FALSE, WSA_INFINITE, FALSE);
+		if (eventObjIdx == WSA_WAIT_FAILED)
 		{
-			FD_SET(clientSession.socket, &readFds);
+			continue;
 		}
 
-		// 마지막 인자는 timeout 설정할 때 사용
-		int32 ret = ::RxSocketUtility::Select(&readFds, nullptr, nullptr);
-		if (ret == SOCKET_ERROR)
+		// 올바른 이벤트 인덱스를 계산해야 함!
+		eventObjIdx -= WSA_WAIT_EVENT_0; // 어차피 0인데 가독성을 위해 추가
+
+		// 이벤트가 감지됐다면 여기에 관련 정보가 저장됨
+		WSANETWORKEVENTS networkEvents;
+		::ZeroMemory(&networkEvents, sizeof(networkEvents));
+
+		// 소켓과 연동된 이벤트를 가져옴
+		if (::WSAEnumNetworkEvents(sessionList[eventObjIdx].socket, wsaEvents[eventObjIdx], &networkEvents) == SOCKET_ERROR)
 		{
 			RxSocketUtility::PrintLastErrorCode();
-			break;
+			continue;
 		}
 
-		// 항상 관찰 중인지 검사!
-		if (FD_ISSET(listenSocket, &readFds) != 0)
+		// 클라이언트의 접속을 받아줄 준비가 됐는지?
+		if (networkEvents.lNetworkEvents & FD_ACCEPT)
 		{
-			SOCKADDR_IN clientAddressData;
-			SOCKET clientSocket = RxSocketUtility::Accept(listenSocket, &clientAddressData);
-			if (clientSocket == INVALID_SOCKET)
-			{
-				// 원래는 블로킹해야 하지만 논블로킹이면 통과
-				if (::WSAGetLastError() == WSAEWOULDBLOCK)
-				{
-					continue;
-				}
-			}
-
-			printf("Client connected!\n\n");
-
-			// 연결되었으니 클라이언트 세션 추가
-			RxClientSession newCientSession;
-			newCientSession.socket = clientSocket;
-			clientSessionList.push_back(newCientSession);
-		}
-
-		// 클라이언트 세션들로 진행
-		for (auto& clientSesseion : clientSessionList)
-		{
-			if (FD_ISSET(clientSesseion.socket, &readFds) == 0)
+			// 오류 확인
+			if (networkEvents.iErrorCode[FD_ACCEPT_BIT] != 0)
 			{
 				continue;
 			}
 
-			clientSesseion.recvBytes = RxSocketUtility::Receive(clientSesseion.socket, clientSesseion.recvBuffer, sizeof(clientSesseion.recvBuffer));
-			if (clientSesseion.recvBytes == SOCKET_ERROR)
-			{
-				// 원래는 블로킹해야 하지만 논블로킹이면 통과
-				if (::WSAGetLastError() == WSAEWOULDBLOCK)
-				{
-					continue;
-				}
+			SOCKADDR_IN clientAddressData;
+			::ZeroMemory(&clientAddressData, sizeof(clientAddressData));
 
-				RxSocketUtility::PrintLastErrorCode();
-				break;
+			SOCKET clientSocket = RxSocketUtility::Accept(listenSocket, &clientAddressData);
+			if (clientSocket != INVALID_SOCKET) // 세션에 등록
+			{
+				RxSession clientSession;
+				clientSession.socket = clientSocket;
+				sessionList.push_back(clientSession);
+
+				WSAEVENT clientSocketEvent = ::WSACreateEvent();
+				wsaEvents.push_back(clientSocketEvent);
+
+				if (::WSAEventSelect(clientSocket, clientSocketEvent, FD_READ | FD_WRITE | FD_CLOSE) == SOCKET_ERROR)
+				{
+					return 0;
+				}
+			}
+		}
+
+		// 클라이언트 소켓 확인
+		if (networkEvents.lNetworkEvents & FD_READ)
+		{
+			// 오류 확인
+			if (networkEvents.iErrorCode[FD_READ_BIT] != 0)
+			{
+				continue;
 			}
 
-			printf("Recv data: %s\n", clientSesseion.recvBuffer);
-			printf("Recv data length: %d\n\n", clientSesseion.recvBytes);
+			RxSession& refClientSesseion = sessionList[eventObjIdx];
+
+			int32 recvBytes = RxSocketUtility::Receive(refClientSesseion.socket, refClientSesseion.recvBuffer, MAX_BUFFER_SIZE);
+			if ((recvBytes == SOCKET_ERROR) &&
+				(::WSAGetLastError() == WSAEWOULDBLOCK))
+			{
+				continue;
+			}
+
+			refClientSesseion.recvBytes = recvBytes;
+
+			printf("Recv data: %s\n", refClientSesseion.recvBuffer);
+			printf("Recv data length: %d\n\n", refClientSesseion.recvBytes);
 		}
 	}
 
