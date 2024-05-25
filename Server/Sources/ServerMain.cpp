@@ -1,73 +1,62 @@
 #include "Pch.h"
+#include "ServerCore/Sources/Thread/ThreadPool.h"
 
-/*
-<Overlapped IO 모델(이벤트 기반)>
--비동기 입출력을 지원하는 소켓 생성 + 통지 받기 위한 이벤트 객체 생성
--비동기 입출력 함수 호출(완료 루틴의 시작 주소를 넘겨줌)
--비동기 작업이 바로 완료되지 않으면 WSA_IO_PENDING 반환
--비동기 입출력 함수를 호출한 쓰레드를 Alertable wait 상태로 만듦
-
-ex) WatiForSingleObjectEx(), WaitForMultipleObjectsEx(), SleepEx(), WSAWaitForMultipleEvents()
--비동기 IO가 완료되면 OS는 완료 루틴 호출
--완료 루틴 호출이 모두 끝나면 쓰레드는 Alertable wait 상태에서 빠져나옴
-*/
-
-/*
-<CompletionRoutine>
-1) 오류가 발생하면 0이 아닌 값
-2) 전송된 바이트 수
-3) 비동기 입출력 함수를 호출할 때 넘겨준 WSAOVERLAPPED 구조체의 주소값
-4) 0
-*/
-
-/*
-<각 모드 정리>
-※ Select 모델
--장점: 윈도우/리눅스 공용 가능
--단점: 성능 최하(매번 등록 필요), 64개 제한
-
-※ WSASelect 모델
--장점: 비교적 뛰어난 성능
--단점: 64개 제한
-
-※ Overlapped Event 모델
--장점: 성능 좋음
--단점: 64개 제한
-
-※ Overlapped Callback 모델
--장점: 성능 좋음
--단점: 모든 비동기 소켓 함수를 지원하지 않음(accept), 빈번한 Alertable wait으로 인한 성능 저하
-
-요즘 게임에서는 IOCP 사용
-*/
-
-/*
-Reactor pattern: 논블로킹 소켓 상태를 확인한 후 뒤늦게 recv 또는 send 호출
-Proactor pattern: Overlapped WSA
-*/
+enum class ENetworkEventType
+{
+	None = 0,
+	Accept,
+	Connect,
+	Read,
+	Write,
+};
 
 const uint32 MAX_BUFFER_SIZE = 1000;
 
 // 세션(클라이언트와 서버 간의 상호작용을 편하게 만드는 보조 도구)
 struct RxSession
 {
-	WSAOVERLAPPED overapped; // 첫 주소를 이용해서 구조체 접근(구조체는 메모리 덩어리라서 가능)
+	WSAOVERLAPPED overlapped;
 	SOCKET socket = INVALID_SOCKET;
-	char   recvBuffer[MAX_BUFFER_SIZE];
-	int32  recvBytes = 0;
+	ENetworkEventType networkEvent = ENetworkEventType::None;
+	char recvBuffer[MAX_BUFFER_SIZE];
+	int32 recvBytes = 0;
 };
 
 // CompletionRoutine
-void CALLBACK OnRecv(DWORD errorCode, DWORD recvLen, LPWSAOVERLAPPED pOverlapped, DWORD flags)
+void CompletionRoutineWorkerThread(HANDLE hIocp)
 {
-	printf("OnRecv Data received length: %d\n", recvLen);
+	while (true)
+	{
+		DWORD bytesTransferred = 0;
+		RxSession* pSession = nullptr;
 
-	// 에코 서버를 만들 거라면 WSASend() 호출 필요
+		// Key와 OVERLAPPED는 분리하는 게 좀 더 가독성이 좋을 거 같음
+		BOOL bRet = ::GetQueuedCompletionStatus(hIocp, &bytesTransferred, reinterpret_cast<ULONG_PTR*>(&pSession), reinterpret_cast<LPOVERLAPPED*>(&pSession), INFINITE);
+		if ((bRet == FALSE) ||
+			(bytesTransferred == 0))
+		{
+			continue;
+		}
 
-	RxSession* pSession = reinterpret_cast<RxSession*>(pOverlapped);
-	assert(pSession != nullptr);
+		assert(pSession->networkEvent == ENetworkEventType::Read);
 
-	printf("Recv data: %s\n", pSession->recvBuffer);
+		printf("Recv data: %s\n", pSession->recvBuffer);
+		printf("Recv data length: %d\n", bytesTransferred);
+
+		WSABUF wsaBuf;
+		::ZeroMemory(&wsaBuf, sizeof(wsaBuf));
+		wsaBuf.buf = pSession->recvBuffer;
+		wsaBuf.len = MAX_BUFFER_SIZE;
+
+		DWORD recvLength = 0;
+		DWORD flags = 0;
+
+		/*
+		한번 연결된 클라이언트는 접속 종료될 때까지 유지하므로 해당 쓰레드에서 Completion Port로 다시 작업을 요청해야 쓰레드가 대기 상태로 들어감
+		즉, Recv인 경우 작업을 처리 완료했어도 이 작업을 하지 않으면 클라이언트가 다시 Send를 해도 해당 쓰레드가 큐에서 작업을 못 가져옴...
+		*/
+		::WSARecv(pSession->socket, &wsaBuf, 1, &recvLength, &flags, &(pSession->overlapped), nullptr);
+	}
 }
 
 int main()
@@ -75,10 +64,10 @@ int main()
 	RxSocketUtility::Startup();
 
 	// 논블로킹 소켓으로 생성
-	SOCKET listenSocket = RxSocketUtility::CreateNonBlockingSocket(IPPROTO_TCP);
+	SOCKET listenSocket = RxSocketUtility::CreateAsynchronousSocket(IPPROTO_TCP);
 
 	// 전에 사용했던 주소 재사용하도록 설정!
-	RxSocketUtility::ModifyReuseAddress(listenSocket, true);
+	//RxSocketUtility::ModifyReuseAddress(listenSocket, true);
 
 	// 테스트용 주소
 	RxSocketUtility::BindAnyAddress(listenSocket, 7777);
@@ -86,67 +75,69 @@ int main()
 	// 서버 영업 개시
 	RxSocketUtility::Listen(listenSocket, SOMAXCONN);
 
+	/*
+	<Overlapped IO 모델>
+	-비동기 입출력 함수가 완료되면 쓰레드마다 있는 APC 큐에 일감이 쌓임
+	-Alertable Wait 상태로 들어가서 APC 큐를 비움
+	-단점: APC큐가 쓰레드마다 있고 Alertable Wait가 좀 부담됨
+	-단점: 이벤트 방식의 소켓에서는 이벤트와 1:1 대응
+	*/
+
+	/*
+	<IOCP>
+	-Overlapped IO와 멀티쓰레드의 혼합
+	-기본적으로 Overlapped IO에서 크게 달라지는 부분은 없음
+	-Completion Port(쓰레드마다 있는 게 아니라 운영체제가 관리하는 딱 하나만 존재)
+	-Alertable Wait은 멀티쓰레드에 매우 취약한데 IOCP는 멀티쓰레드와 궁합이 좋음!
+	*/
+
+	// 멀티쓰레드에서 사용해야 하므로 포인터 필수!
+	std::vector<RxSession*> sessions;
+
+	// Completion Port 생성
+	HANDLE hIocp = ::CreateIoCompletionPort(INVALID_HANDLE_VALUE, nullptr, 0, 0);
+
+	// 쓰레드풀 가동
+	RxThreadPool threadPool;
+	for (uint32 i = 0; i < 5; ++i)
+	{
+		threadPool.AddTask([=]() { CompletionRoutineWorkerThread(hIocp); });
+	}
+
 	// 클라이언트와 상호작용
 	while (true)
 	{
 		SOCKADDR_IN clientAddressData;
 		::ZeroMemory(&clientAddressData, sizeof(clientAddressData));
-
-		SOCKET clientSocket = 0;
-		while (true)
+		SOCKET clientSocket = RxSocketUtility::Accept(listenSocket, &clientAddressData);
+		if (clientSocket == INVALID_SOCKET)
 		{
-			clientSocket = RxSocketUtility::Accept(listenSocket, &clientAddressData);
-			if (clientSocket != INVALID_SOCKET)
-			{
-				break;
-			}
-			else
-			{
-				// 논블로킹이라서
-				if (::WSAGetLastError() == WSAEWOULDBLOCK)
-				{
-					continue;
-				}
-
-				// 문제가 있는 상황
-				RxSocketUtility::PrintLastErrorCode();
-				return 0;
-			}
+			RxSocketUtility::PrintLastErrorCode();
+			return 0;
 		}
 
-		RxSession clientSession;
-		::ZeroMemory(&clientSession, sizeof(clientSession));
-		clientSession.socket = clientSocket;
-		printf("Client connected!\n");
+		RxSession* pClientSession = new RxSession;
+		::ZeroMemory(pClientSession, sizeof(RxSession));
+		pClientSession->socket = clientSocket;
+		sessions.push_back(pClientSession);
 
-		while (true)
-		{
-			WSABUF wsaBuf;
-			::ZeroMemory(&wsaBuf, sizeof(wsaBuf));
-			wsaBuf.buf = clientSession.recvBuffer;
-			wsaBuf.len = MAX_BUFFER_SIZE;
+		printf("Client Connected !\n");
 
-			DWORD recvLen = 0;
-			DWORD flags = 0;
+		// 클라이언트 소켓을 Completion Port에 등록
+		::CreateIoCompletionPort(reinterpret_cast<HANDLE>(clientSocket), hIocp, reinterpret_cast<ULONG_PTR>(pClientSession), 0);
 
-			if (::WSARecv(clientSocket, &wsaBuf, 1, &recvLen, &flags, &clientSession.overapped, OnRecv) == SOCKET_ERROR)
-			{
-				if (::WSAGetLastError() == WSA_IO_PENDING)
-				{
-					// Alertable wait
-					::SleepEx(INFINITE, TRUE);
-				}
-				else
-				{
-					RxSocketUtility::PrintLastErrorCode();
-					break;
-				}
-			}
-			else
-			{
-				printf("Data received length: %d\n", recvLen);
-			}
-		}
+		WSABUF wsaBuf;
+		::ZeroMemory(&wsaBuf, sizeof(wsaBuf));
+		wsaBuf.buf = pClientSession->recvBuffer;
+		wsaBuf.len = MAX_BUFFER_SIZE;
+
+		pClientSession->networkEvent = ENetworkEventType::Read;
+
+		DWORD recvLen = 0;
+		DWORD flags = 0;
+
+		// LPWSAOVERLAPPED라고 되어있으면 무조건 OVERLAPPED 자체만 넘겨줘야 함!
+		::WSARecv(clientSocket, &wsaBuf, 1, &recvLen, &flags, reinterpret_cast<LPOVERLAPPED>(&(pClientSession->overlapped)), nullptr);
 	}
 
 	RxSocketUtility::CloseSocket(listenSocket);
