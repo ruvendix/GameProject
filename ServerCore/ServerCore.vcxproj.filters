@@ -22,28 +22,47 @@
     <ClInclude Include="Sources\Pch\Pch.h">
       <Filter>Sources\Pch</Filter>
     </ClInclude>
-    <ClInclude Include="Sources\Thread\ThreadPool.h">
-      <Filter>Sources\Thread</Filter>
-    </ClInclude>
     <ClInclude Include="Sources\Thread\Tls.h">
       <Filter>Sources\Thread</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Network\IocpCore.h" />
+    <ClInclude Include="Sources\Network\IocpObject.h" />
+    <ClInclude Include="Sources\Network\IocpEvent.h" />
+    <ClInclude Include="Sources\Network\NetworkAddress.h" />
+    <ClInclude Include="Sources\Network\Listener.h" />
+    <ClInclude Include="Sources\Network\Session.h" />
+    <ClInclude Include="Sources\Thread\ThreadPool.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sources\ServerCoreMain.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Sources\Socket\SocketUtility.cpp">
       <Filter>Sources\Global</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <Filter>Sources\Pch</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Thread\ThreadPool.cpp">
-      <Filter>Sources\Thread</Filter>
-    </ClCompile>
     <ClCompile Include="Sources\Thread\Tls.cpp">
       <Filter>Sources\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\IocpCore.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\IocpObject.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\IocpEvent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\NetworkAddress.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\Listener.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\Session.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Thread\ThreadPool.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

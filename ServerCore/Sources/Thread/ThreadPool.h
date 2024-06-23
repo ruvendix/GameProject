@@ -42,6 +42,11 @@ public:
 	void StartupTls();
 	void CleanupTls();
 
+	void Join();
+	void Cleanup();
+
+	void ForceAllStop() { m_bAllStop.store(false); }
+
 private:
 	using TaskFuncType = std::function<void(void)>;
 
@@ -53,7 +58,7 @@ private:
 	std::condition_variable m_conditionVar;
 
 	std::queue<TaskFuncType> m_taskQueue;
-	bool m_bAllStop = false;
+	std::atomic<bool> m_bAllStop;
 
 	// 쓰레드 Id 관리용
 	std::vector<uint32> m_threadIds;

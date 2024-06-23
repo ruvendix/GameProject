@@ -1,6 +1,9 @@
 #include "Pch.h"
 #include "SocketUtility.h"
 
+#include "Network/IocpEvent.h"
+#include "Network/Session.h"
+
 namespace
 {
 	LPFN_CONNECTEX    s_connectExFn = nullptr;
@@ -25,6 +28,8 @@ void RxSocketUtility::Startup()
 	BindWindowsFunction(dummySocket, WSAID_CONNECTEX, reinterpret_cast<LPVOID*>(&s_connectExFn));
 	BindWindowsFunction(dummySocket, WSAID_DISCONNECTEX, reinterpret_cast<LPVOID*>(&s_disconnectExFn));
 	BindWindowsFunction(dummySocket, WSAID_ACCEPTEX, reinterpret_cast<LPVOID*>(&s_acceptExFn));
+
+	CloseSocket(dummySocket);
 }
 
 void RxSocketUtility::Cleanup()
@@ -61,12 +66,12 @@ SOCKET RxSocketUtility::CreateAsynchronousSocket(int32 protocol)
 	return (::WSASocket(AF_INET, SOCK_STREAM, protocol, nullptr, 0, WSA_FLAG_OVERLAPPED));
 }
 
-void RxSocketUtility::BindWindowsFunction(SOCKET socket, GUID wsaGuid, LPVOID* pFn)
+void RxSocketUtility::BindWindowsFunction(SOCKET socket, GUID wsaGuid, LPVOID* ppFn)
 {
 	DWORD retBytes = 0;
 
 	// SIO_GET_EXTENSION_FUNCTION_POINTER는 함수 포인터를 알려주므로 외부 함수로 받을 때는 더블 포인터를 사용!
-	if (::WSAIoctl(socket, SIO_GET_EXTENSION_FUNCTION_POINTER, &wsaGuid, sizeof(wsaGuid), pFn, sizeof(*pFn), &retBytes, nullptr, nullptr) == SOCKET_ERROR)
+	if (::WSAIoctl(socket, SIO_GET_EXTENSION_FUNCTION_POINTER, &wsaGuid, sizeof(wsaGuid), ppFn, sizeof(*ppFn), &retBytes, nullptr, nullptr) == SOCKET_ERROR)
 	{
 		PrintLastErrorCode();
 	}
@@ -109,6 +114,20 @@ SOCKET RxSocketUtility::Accept(SOCKET listenSocket, SOCKADDR_IN* pClientAddressD
 	return (::accept(listenSocket, reinterpret_cast<SOCKADDR*>(pClientAddressData), &addressLength));
 }
 
+BOOL RxSocketUtility::AcceptEx(SOCKET listenSocket, RxSession* pSession, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent)
+{
+	BOOL bRet = s_acceptExFn(listenSocket,
+		pSession->GetSocket(),
+		pSession->GetReceiveBuffer(),
+		0,
+		sizeof(SOCKADDR_IN) + 16,
+		sizeof(SOCKADDR_IN) + 16,
+		pReceivedBytes,
+		pAcceptEvent->GetOverlapped());
+
+	return bRet;
+}
+
 int32 RxSocketUtility::Send(SOCKET socket, char* sendBuffer, int32 sendBufferSize)
 {
 	return (::send(socket, sendBuffer, sendBufferSize, 0));
@@ -134,36 +153,36 @@ void RxSocketUtility::CloseSocket(SOCKET& inoutSocket)
 	inoutSocket = INVALID_SOCKET;
 }
 
-void RxSocketUtility::ModifyLinger(SOCKET socket, uint16 onOff, uint16 linger)
+bool RxSocketUtility::ModifyLinger(SOCKET socket, uint16 onOff, uint16 linger)
 {
 	LINGER lingerData;
 	lingerData.l_onoff = onOff;
 	lingerData.l_linger = linger;
 	
-	ModifySocketOption(socket, SOL_SOCKET, SO_LINGER, lingerData);
+	return (ModifySocketOption(socket, SOL_SOCKET, SO_LINGER, lingerData));
 }
 
-void RxSocketUtility::ModifyReuseAddress(SOCKET socket, bool bFlag)
+bool RxSocketUtility::ModifyReuseAddress(SOCKET socket, bool bFlag)
 {
-	ModifySocketOption(socket, SOL_SOCKET, SO_REUSEADDR, bFlag);
+	return (ModifySocketOption(socket, SOL_SOCKET, SO_REUSEADDR, bFlag));
 }
 
-void RxSocketUtility::ModifySendBufferSize(SOCKET socket, int32 newSize)
+bool RxSocketUtility::ModifySendBufferSize(SOCKET socket, int32 newSize)
 {
-	ModifySocketOption(socket, SOL_SOCKET, SO_SNDBUF, newSize);
+	return (ModifySocketOption(socket, SOL_SOCKET, SO_SNDBUF, newSize));
 }
 
-void RxSocketUtility::ModifyReceiveBufferSize(SOCKET socket, int32 newSize)
+bool RxSocketUtility::ModifyReceiveBufferSize(SOCKET socket, int32 newSize)
 {
-	ModifySocketOption(socket, SOL_SOCKET, SO_RCVBUF, newSize);
+	return (ModifySocketOption(socket, SOL_SOCKET, SO_RCVBUF, newSize));
 }
 
-void RxSocketUtility::ModifyTcpNoDelay(SOCKET socket, bool bFlag)
+bool RxSocketUtility::ModifyTcpNoDelay(SOCKET socket, bool bFlag)
 {
-	ModifySocketOption(socket, SOL_SOCKET, TCP_NODELAY, bFlag);
+	return (ModifySocketOption(socket, SOL_SOCKET, TCP_NODELAY, bFlag));
 }
 
-void RxSocketUtility::ModifyUpdateAcceptSocket(SOCKET socket, SOCKET listenSocket)
+bool RxSocketUtility::ModifyUpdateAcceptSocket(SOCKET socket, SOCKET listenSocket)
 {
-	ModifySocketOption(socket, SOL_SOCKET, SO_UPDATE_ACCEPT_CONTEXT, listenSocket);
+	return (ModifySocketOption(socket, SOL_SOCKET, SO_UPDATE_ACCEPT_CONTEXT, listenSocket));
 }

@@ -11,7 +11,14 @@
 
 int main()
 {
-	RxSocketUtility::Startup();
+	//RxSocketUtility::Startup();
+
+	// WSA => Window Socket Application Interface
+	WSADATA wsaData;
+	if (::WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+	{
+		return 0;
+	}
 
 	// 논블로킹 소켓으로 생성
 	SOCKET clientSocket = RxSocketUtility::CreateNonBlockingSocket(IPPROTO_TCP);
@@ -25,7 +32,8 @@ int main()
 	// 서버에 연결 시도
 	while (true)
 	{
-		if (RxSocketUtility::Connect(clientSocket, serverAddressData) == SOCKET_ERROR)
+		//if (RxSocketUtility::Connect(clientSocket, serverAddressData) == SOCKET_ERROR)
+		if (::connect(clientSocket, (SOCKADDR*)&serverAddressData, sizeof(serverAddressData)) == SOCKET_ERROR)
 		{
 			int32 errorCode = ::WSAGetLastError();
 
