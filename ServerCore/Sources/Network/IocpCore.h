@@ -1,7 +1,5 @@
 #pragma once
 
-class RxIocpObject;
-
 class RxIocpCore
 {
 public:
@@ -11,7 +9,7 @@ public:
 	void Startup();
 	void Cleanup();
 
-	bool Register(RxIocpObject* pIocpObj);
+	bool Register(RxIocpObjectPtr spIocpObj);
 	bool Dispatch(uint32 timeMilliseconds);
 
 	HANDLE GetIocpHandle() const { return m_hIocp; }

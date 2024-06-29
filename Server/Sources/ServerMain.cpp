@@ -1,11 +1,11 @@
 #include "Pch.h"
 #include "ServerCore/Sources/Thread/ThreadPool.h"
+#include "ServerCore/Sources/Network/Service.h"
 #include "ServerCore/Sources/Network/IocpCore.h"
-#include "ServerCore/Sources/Network/Listener.h"
-#include "ServerCore/Sources/Network/NetworkAddress.h"
+#include "ServerCore/Sources/Network/Session.h"
 
-RxThreadPool g_threadPool;
-RxIocpCore g_iocpCore;
+RxServicePtr g_spServerService;
+RxThreadPool g_threadPool; // 풀은 여러개 가능
 
 /*
 종료 절차
@@ -21,7 +21,7 @@ BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
 		(signal == CTRL_LOGOFF_EVENT) ||
 		(signal == CTRL_SHUTDOWN_EVENT))
 	{
-		g_iocpCore.Cleanup();
+		g_spServerService->GetIocpCorePtr()->Cleanup();
 		g_threadPool.Cleanup();
 		RxSocketUtility::Cleanup();
 
@@ -34,13 +34,14 @@ BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
 	return FALSE;
 }
 
-void TestFunc()
+class GameSession : public RxSession
 {
-	while (true)
-	{
+public:
+	GameSession() = default;
+	virtual ~GameSession() = default;
 
-	}
-}
+private:
+};
 
 int main()
 {
@@ -51,17 +52,24 @@ int main()
 
 	RxSocketUtility::Startup();
 
-	g_iocpCore.Startup();
+	RxServiceInfo serviceInfo =
+	{
+		ERxServiceType::Server,
+		RxNetworkAddress(L"127.0.0.1", 7777),
+		std::make_shared<RxIocpCore>(),
+		[]() { return std::make_shared<GameSession>(); },
+		100
+	};
 
-	RxListenerPtr spListener = std::make_shared<RxListener>();
-	spListener->ReadyToAccept(&g_iocpCore, RxNetworkAddress(L"127.0.0.1", 7777));
+	g_spServerService = std::make_shared<RxServerService>(serviceInfo);
+	g_spServerService->Startup();
 
 	for (uint32 i = 0; i < 5; ++i)
 	{
 		g_threadPool.AddTask(
 			[&]()
 			{
-				g_iocpCore.Dispatch(INFINITE);
+				g_spServerService->GetIocpCorePtr()->Dispatch(INFINITE);
 			}
 		);
 	}

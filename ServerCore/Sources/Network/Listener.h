@@ -2,24 +2,23 @@
 
 #include "IocpObject.h"
 
-class RxIocpCore;
-class RxNetworkAddress;
-
 class RxListener : public RxIocpObject
 {
 public:
-	RxListener();
+	RxListener(const RxServicePtr& spOwner, SOCKET listenSocket);
 	virtual ~RxListener();
 
 	virtual HANDLE BringHandle() override;
 	virtual void Dispatch(RxIocpEvent* pIocpEvent, int32 numOfBytes) override;
 
-	bool ReadyToAccept(RxIocpCore* pIocpCore, const RxNetworkAddress& netAddress);
+	bool ReadyToAccept();
 
 	void RegisterAccept(RxIocpEvent* pAcceptEvent);
 	void ProcessAccept(RxIocpEvent* pAcceptEvent);
 
 private:
+	DECLARE_OWNER(RxServerService); // 자식은 항상 부모를 weak_ptr로만 사용!
+
 	SOCKET m_listenSocket = INVALID_SOCKET;
 	std::vector<RxIocpEvent*> m_iocpEvents;
 };

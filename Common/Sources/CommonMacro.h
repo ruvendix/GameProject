@@ -15,7 +15,7 @@ assert(m_spOwner.expired() == false)
 m_spOwner = std::dynamic_pointer_cast<OwnerCastType>(spOwner); \
 assert(m_spOwner.expired() == false)
 
-#define DECLARE_OWNER(OwnerType) std::weak_ptr<OwnerType> m_spOwner
+#define DECLARE_OWNER(OwnerType) std::weak_ptr<class OwnerType> m_spOwner
 #define GET_OWNER_PTR(spOwner) spOwner.lock()
 
 #define USE_PARENT(parentType) using Parent = parentType

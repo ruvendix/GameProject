@@ -1,13 +1,16 @@
 #include "Pch.h"
 #include "Listener.h"
 
+#include "Service.h"
 #include "IocpCore.h"
 #include "IocpEvent.h"
 #include "NetworkAddress.h"
 #include "Session.h"
 
-RxListener::RxListener()
+RxListener::RxListener(const RxServicePtr& spOwner, SOCKET listenSocket)
 {
+	DEFINE_DYNAMIC_CAST_OWNER(RxServerService, spOwner);
+	m_listenSocket = listenSocket;
 }
 
 RxListener::~RxListener()
@@ -31,20 +34,8 @@ void RxListener::Dispatch(RxIocpEvent* pIocpEvent, int32 numOfBytes)
 	ProcessAccept(pIocpEvent);
 }
 
-bool RxListener::ReadyToAccept(RxIocpCore* pIocpCore, const RxNetworkAddress& netAddress)
+bool RxListener::ReadyToAccept()
 {
-	m_listenSocket = RxSocketUtility::CreateAsynchronousSocket(IPPROTO_TCP);
-	if (m_listenSocket == INVALID_SOCKET)
-	{
-		return false;
-	}
-
-	assert(pIocpCore != nullptr);
-	if (pIocpCore->Register(this) == false)
-	{
-		return false;
-	}
-
 	if (RxSocketUtility::ModifyReuseAddress(m_listenSocket, true) == false)
 	{
 		return false;
@@ -55,7 +46,9 @@ bool RxListener::ReadyToAccept(RxIocpCore* pIocpCore, const RxNetworkAddress& ne
 		return false;
 	}
 
+	const RxNetworkAddress& netAddress = GET_OWNER_PTR(m_spOwner)->GetNetworkAddress();
 	RxSocketUtility::BindSocket(m_listenSocket, netAddress.GetSockAddr());
+
 	RxSocketUtility::Listen(m_listenSocket, SOMAXCONN);
 
 	const uint32 acceptCount = 1;

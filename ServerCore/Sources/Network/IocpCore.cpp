@@ -25,10 +25,10 @@ void RxIocpCore::Cleanup()
 	::CloseHandle(m_hIocp);
 }
 
-bool RxIocpCore::Register(RxIocpObject* pIocpObj)
+bool RxIocpCore::Register(RxIocpObjectPtr spIocpObj)
 {
-	assert(pIocpObj != nullptr);
-	return (::CreateIoCompletionPort(pIocpObj->BringHandle(), m_hIocp, 0, 0));
+	assert(spIocpObj != nullptr);
+	return (::CreateIoCompletionPort(spIocpObj->BringHandle(), m_hIocp, 0, 0));
 }
 
 bool RxIocpCore::Dispatch(uint32 timeMilliseconds)
