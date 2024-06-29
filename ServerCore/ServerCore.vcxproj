@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Sources\Global\Types.h" />
     <ClInclude Include="Sources\Network\IocpCore.h" />
     <ClInclude Include="Sources\Network\IocpEvent.h" />
     <ClInclude Include="Sources\Network\IocpObject.h" />

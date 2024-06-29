@@ -114,11 +114,11 @@ SOCKET RxSocketUtility::Accept(SOCKET listenSocket, SOCKADDR_IN* pClientAddressD
 	return (::accept(listenSocket, reinterpret_cast<SOCKADDR*>(pClientAddressData), &addressLength));
 }
 
-BOOL RxSocketUtility::AcceptEx(SOCKET listenSocket, RxSession* pSession, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent)
+BOOL RxSocketUtility::AcceptEx(SOCKET listenSocket, RxSessionPtr spSession, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent)
 {
 	BOOL bRet = s_acceptExFn(listenSocket,
-		pSession->GetSocket(),
-		pSession->GetReceiveBuffer(),
+		spSession->GetSocket(),
+		spSession->GetReceiveBuffer(),
 		0,
 		sizeof(SOCKADDR_IN) + 16,
 		sizeof(SOCKADDR_IN) + 16,

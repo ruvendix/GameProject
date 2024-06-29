@@ -6,6 +6,10 @@
 #include "NetworkAddress.h"
 #include "Session.h"
 
+RxListener::RxListener()
+{
+}
+
 RxListener::~RxListener()
 {
 	for (RxIocpEvent* pIocpEvent : m_iocpEvents)
@@ -57,7 +61,7 @@ bool RxListener::ReadyToAccept(RxIocpCore* pIocpCore, const RxNetworkAddress& ne
 	const uint32 acceptCount = 1;
 	for (uint32 i = 0; i < acceptCount; ++i)
 	{
-		RxIocpEvent* pIocpEvent = new RxIocpEvent;
+		RxIocpEvent* pIocpEvent = new RxIocpEvent(shared_from_this());
 		pIocpEvent->SetNetworkEvent(ENetworkEventType::Accept);
 
 		m_iocpEvents.push_back(pIocpEvent);
@@ -69,13 +73,11 @@ bool RxListener::ReadyToAccept(RxIocpCore* pIocpCore, const RxNetworkAddress& ne
 
 void RxListener::RegisterAccept(RxIocpEvent* pAcceptEvent)
 {
-	pAcceptEvent->Initialize();
-
-	RxSession* pSession = new RxSession;
-	pAcceptEvent->SetSession(pSession);
+	RxSessionPtr spSession = std::make_shared<RxSession>();
+	pAcceptEvent->SetSession(spSession);
 
 	DWORD dwReceivedBytes = 0;
-	if (RxSocketUtility::AcceptEx(m_listenSocket, pSession, &dwReceivedBytes, pAcceptEvent) == FALSE)
+	if (RxSocketUtility::AcceptEx(m_listenSocket, spSession, &dwReceivedBytes, pAcceptEvent) == FALSE)
 	{
 		int32 errCode = ::WSAGetLastError();
 		if (errCode != WSA_IO_PENDING)
@@ -88,8 +90,8 @@ void RxListener::RegisterAccept(RxIocpEvent* pAcceptEvent)
 
 void RxListener::ProcessAccept(RxIocpEvent* pAcceptEvent)
 {
-	RxSession* pSession = pAcceptEvent->GetSession();
-	if (RxSocketUtility::ModifyUpdateAcceptSocket(pSession->GetSocket(), m_listenSocket) == false)
+	RxSessionPtr spSession = pAcceptEvent->GetSession();
+	if (RxSocketUtility::ModifyUpdateAcceptSocket(spSession->GetSocket(), m_listenSocket) == false)
 	{
 		// 다시 시도
 		RegisterAccept(pAcceptEvent);
@@ -100,7 +102,7 @@ void RxListener::ProcessAccept(RxIocpEvent* pAcceptEvent)
 	int32 sockAddrSize = sizeof(SOCKADDR_IN);
 	::ZeroMemory(&sockAddr, sockAddrSize);
 
-	if (::getpeername(pSession->GetSocket(), reinterpret_cast<SOCKADDR*>(&sockAddr), &sockAddrSize) == SOCKET_ERROR)
+	if (::getpeername(spSession->GetSocket(), reinterpret_cast<SOCKADDR*>(&sockAddr), &sockAddrSize) == SOCKET_ERROR)
 	{
 		// 다시 시도
 		RegisterAccept(pAcceptEvent);
@@ -108,7 +110,7 @@ void RxListener::ProcessAccept(RxIocpEvent* pAcceptEvent)
 	}
 
 	RxNetworkAddress networkAddr(sockAddr);
-	pSession->SetNetworkAddress(networkAddr);
+	spSession->SetNetworkAddress(networkAddr);
 	printf("Client connected!\n");
 
 	// TODO

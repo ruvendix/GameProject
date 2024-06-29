@@ -2,7 +2,7 @@
 
 class RxIocpEvent;
 
-class RxIocpObject
+class RxIocpObject : public std::enable_shared_from_this<RxIocpObject>
 {
 public:
 	RxIocpObject() = default;

@@ -53,8 +53,8 @@ int main()
 
 	g_iocpCore.Startup();
 
-	RxListener listener;
-	listener.ReadyToAccept(&g_iocpCore, RxNetworkAddress(L"127.0.0.1", 7777));
+	RxListenerPtr spListener = std::make_shared<RxListener>();
+	spListener->ReadyToAccept(&g_iocpCore, RxNetworkAddress(L"127.0.0.1", 7777));
 
 	for (uint32 i = 0; i < 5; ++i)
 	{

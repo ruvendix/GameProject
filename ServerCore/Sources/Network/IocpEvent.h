@@ -15,20 +15,22 @@ class RxSession;
 class RxIocpEvent
 {
 public:
-	RxIocpEvent();
+	RxIocpEvent(const RxIocpObjectPtr& spOwner);
 	~RxIocpEvent() = default;
-
-	void Initialize();
 
 	ENetworkEventType GetNetworkEvent() const { return m_networkEvent; }
 	void SetNetworkEvent(ENetworkEventType networkEvent) { m_networkEvent = networkEvent; }
 
 	OVERLAPPED* GetOverlapped() { return &m_overlapped; }
-	RxSession* GetSession() const { return m_pSession; }
-	void SetSession(RxSession* pSession) { m_pSession = pSession; }
+	const RxSessionPtr& GetSession() const { return m_spSession; }
+	void SetSession(const RxSessionPtr& spSession) { m_spSession = spSession; }
+
+	RxIocpObjectPtr GetOwner() const { return (m_spOwner.lock()); }
 
 private:
 	OVERLAPPED m_overlapped;
+	DECLARE_OWNER(RxIocpObject);
+
 	ENetworkEventType m_networkEvent = ENetworkEventType::Unknown;
-	RxSession* m_pSession = nullptr;
+	RxSessionPtr m_spSession = nullptr;
 };

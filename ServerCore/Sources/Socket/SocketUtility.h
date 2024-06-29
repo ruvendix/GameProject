@@ -1,6 +1,5 @@
 #pragma once
 
-class RxSession;
 class RxIocpEvent;
 
 /*
@@ -27,7 +26,7 @@ public:
 	static void CloseSocket(SOCKET& inoutSocket);
 
 	static SOCKET Accept(SOCKET listenSocket, SOCKADDR_IN* pClientAddressData);
-	static BOOL   AcceptEx(SOCKET listenSocket, RxSession* pSession, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent);
+	static BOOL   AcceptEx(SOCKET listenSocket, RxSessionPtr spSession, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent);
 
 	static int32 Connect(SOCKET clientSocket, const SOCKADDR_IN& netAddressData);
 	static int32 Send(SOCKET socket, char* sendBuffer, int32 sendBufferSize);

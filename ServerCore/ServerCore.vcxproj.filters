@@ -32,6 +32,7 @@
     <ClInclude Include="Sources\Network\Listener.h" />
     <ClInclude Include="Sources\Network\Session.h" />
     <ClInclude Include="Sources\Thread\ThreadPool.h" />
+    <ClInclude Include="Sources\Global\Types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Socket\SocketUtility.cpp">

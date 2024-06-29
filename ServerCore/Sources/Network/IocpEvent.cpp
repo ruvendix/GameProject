@@ -1,12 +1,8 @@
 #include "Pch.h"
 #include "IocpEvent.h"
 
-RxIocpEvent::RxIocpEvent()
+RxIocpEvent::RxIocpEvent(const RxIocpObjectPtr& spOwner)
 {
-	Initialize();
-}
-
-void RxIocpEvent::Initialize()
-{
+	DEFINE_OWNER(RxIocpObject, spOwner);
 	::ZeroMemory(&m_overlapped, sizeof(OVERLAPPED));
 }

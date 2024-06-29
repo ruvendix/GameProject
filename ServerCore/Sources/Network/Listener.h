@@ -8,7 +8,7 @@ class RxNetworkAddress;
 class RxListener : public RxIocpObject
 {
 public:
-	RxListener() = default;
+	RxListener();
 	virtual ~RxListener();
 
 	virtual HANDLE BringHandle() override;

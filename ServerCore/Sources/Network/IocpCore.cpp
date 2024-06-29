@@ -28,24 +28,28 @@ void RxIocpCore::Cleanup()
 bool RxIocpCore::Register(RxIocpObject* pIocpObj)
 {
 	assert(pIocpObj != nullptr);
-	return (::CreateIoCompletionPort(pIocpObj->BringHandle(), m_hIocp, reinterpret_cast<ULONG_PTR>(pIocpObj), 0));
+	return (::CreateIoCompletionPort(pIocpObj->BringHandle(), m_hIocp, 0, 0));
 }
 
 bool RxIocpCore::Dispatch(uint32 timeMilliseconds)
 {
 	DWORD dwNumOfBytes = 0;
-	RxIocpObject* pIocpObj = nullptr;
-	RxIocpEvent*  pIocpEvent = nullptr;
+	ULONG_PTR key = 0;
+	RxIocpEvent* pIocpEvent = nullptr;
 
-	if (::GetQueuedCompletionStatus(m_hIocp, &dwNumOfBytes, reinterpret_cast<ULONG_PTR*>(&pIocpObj), reinterpret_cast<LPOVERLAPPED*>(&pIocpEvent), timeMilliseconds) == FALSE)
+	if (::GetQueuedCompletionStatus(m_hIocp, &dwNumOfBytes, &key, reinterpret_cast<LPOVERLAPPED*>(&pIocpEvent), timeMilliseconds) == FALSE)
 	{
+		RxIocpObjectPtr spIocpObj = nullptr;
+
 		int32 errCode = ::WSAGetLastError();
 		switch (errCode)
 		{
-		case WSA_OPERATION_ABORTED:
-			// 다시 시도
+		case WSA_OPERATION_ABORTED: // 다시 시도			
 			RxSocketUtility::PrintLastErrorCode();
-			pIocpObj->Dispatch(pIocpEvent, dwNumOfBytes);
+
+			spIocpObj = pIocpEvent->GetOwner();
+			spIocpObj->Dispatch(pIocpEvent, dwNumOfBytes);
+
 			break;
 
 		default: // 무조건 아웃
@@ -55,7 +59,8 @@ bool RxIocpCore::Dispatch(uint32 timeMilliseconds)
 	}
 	else
 	{
-		pIocpObj->Dispatch(pIocpEvent, dwNumOfBytes);
+		RxIocpObjectPtr spIocpObj = pIocpEvent->GetOwner();
+		spIocpObj->Dispatch(pIocpEvent, dwNumOfBytes);
 	}
 
 	return true;
