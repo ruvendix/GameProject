@@ -12,7 +12,7 @@ public:
 	static void Startup();
 	static void Cleanup();
 
-	static void PrintLastErrorCode();
+	static int32 HandleLastError();
 
 	static SOCKET CreateBlockingSocket(int32 protocol);
 	static SOCKET CreateNonBlockingSocket(int32 protocol);
@@ -29,6 +29,10 @@ public:
 	static BOOL   AcceptEx(SOCKET listenSocket, RxSessionPtr spSession, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent);
 
 	static int32 Connect(SOCKET clientSocket, const SOCKADDR_IN& netAddressData);
+	static BOOL  ConnectEx(SOCKET clientSocket, const SOCKADDR_IN& netAddressData, DWORD* pReceivedBytes, RxIocpEvent* pConnectEvent);
+	
+	static BOOL  DisconnectEx(SOCKET clientSocket, RxIocpEvent* pDisconnectEvent);
+
 	static int32 Send(SOCKET socket, char* sendBuffer, int32 sendBufferSize);
 	static int32 Receive(SOCKET socket, char* recvBuffer, int32 recvBufferSize);
 	static int32 Select(fd_set* pReadFds, fd_set* pWrites, fd_set* pExcepts);
@@ -45,7 +49,7 @@ public:
 	{
 		if (::setsockopt(socket, level, optionCode, reinterpret_cast<const char*>(&option), sizeof(option)) == SOCKET_ERROR)
 		{
-			PrintLastErrorCode();
+			HandleLastError();
 			return false;
 		}
 

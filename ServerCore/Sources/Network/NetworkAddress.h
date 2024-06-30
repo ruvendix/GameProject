@@ -3,7 +3,7 @@
 class RxNetworkAddress
 {
 public:
-	RxNetworkAddress() = default;
+	RxNetworkAddress();
 	RxNetworkAddress(SOCKADDR_IN sockAddr);
 	RxNetworkAddress(const std::wstring& wstrIp, uint16 port);
 

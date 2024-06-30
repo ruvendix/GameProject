@@ -1,14 +1,19 @@
 #include "Pch.h"
 #include "NetworkAddress.h"
 
+RxNetworkAddress::RxNetworkAddress()
+{
+	::ZeroMemory(&m_sockAddr, sizeof(SOCKADDR_IN));
+}
+
 RxNetworkAddress::RxNetworkAddress(SOCKADDR_IN sockAddr)
 {
 	m_sockAddr = sockAddr;
 }
 
-RxNetworkAddress::RxNetworkAddress(const std::wstring& wstrIp, uint16 port)
+RxNetworkAddress::RxNetworkAddress(const std::wstring& wstrIp, uint16 port) :
+	RxNetworkAddress()
 {
-	::ZeroMemory(&m_sockAddr, sizeof(SOCKADDR_IN));
 	m_sockAddr.sin_family = AF_INET;
 	m_sockAddr.sin_port = ::htons(port);
 

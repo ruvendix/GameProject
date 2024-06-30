@@ -1,8 +1,14 @@
 #include "Pch.h"
 #include "IocpEvent.h"
 
-RxIocpEvent::RxIocpEvent(const RxIocpObjectPtr& spOwner)
+RxIocpEvent::RxIocpEvent(ENetworkEventType netEvent)
 {
-	DEFINE_OWNER(RxIocpObject, spOwner);
 	::ZeroMemory(&m_overlapped, sizeof(OVERLAPPED));
+	m_netEvent = netEvent;
+}
+
+RxIocpEvent::RxIocpEvent(const RxIocpObjectPtr& spOwner, ENetworkEventType netEvent) :
+	RxIocpEvent(netEvent)
+{
+	SET_OWNER_PTR(spOwner);
 }

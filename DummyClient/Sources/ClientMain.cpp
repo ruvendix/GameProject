@@ -35,7 +35,7 @@ int main()
 		//if (RxSocketUtility::Connect(clientSocket, serverAddressData) == SOCKET_ERROR)
 		if (::connect(clientSocket, (SOCKADDR*)&serverAddressData, sizeof(serverAddressData)) == SOCKET_ERROR)
 		{
-			int32 errorCode = ::WSAGetLastError();
+			int32 errorCode = RxSocketUtility::HandleLastError();
 
 			// 원래는 블로킹해야 하지만 논블로킹이면 통과
 			if (errorCode == WSAEWOULDBLOCK)
@@ -51,32 +51,43 @@ int main()
 		}
 	}
 
+	fd_set writes;
+
 	// 서버와 상호작용
 	while (true)
 	{
-		char sendBuffer[1000] = "Hello i am client!";
-		int32 sendSize = sizeof(sendBuffer);
+		// 소켓 셋 초기화
+		FD_ZERO(&writes);
 
-		int32 sendLength = RxSocketUtility::Send(clientSocket, sendBuffer, sizeof(sendBuffer));
-		if (sendLength == SOCKET_ERROR)
+		// ListenSocket 등록
+		FD_SET(clientSocket, &writes);
+
+		if (FD_ISSET(clientSocket, &writes))
 		{
-			int32 errorCode = ::WSAGetLastError();
+			char sendBuffer[100] = "Hello i am client!";
+			int32 sendSize = sizeof(sendBuffer);
 
-			// 원래는 블로킹해야 하지만 논블로킹이면 통과
-			if (errorCode == WSAEWOULDBLOCK)
+			int32 sendLength = RxSocketUtility::Send(clientSocket, sendBuffer, sizeof(sendBuffer));
+			if (sendLength == SOCKET_ERROR)
 			{
-				continue;
-			}
-			else if (errorCode == WSAECONNRESET)
-			{
-				break;
+				int32 errorCode = RxSocketUtility::HandleLastError();
+
+				// 원래는 블로킹해야 하지만 논블로킹이면 통과
+				if (errorCode == WSAEWOULDBLOCK)
+				{
+					continue;
+				}
+				else if (errorCode == WSAECONNRESET)
+				{
+					break;
+				}
+
+				printf("Send data length: %d (NonBlocking)\n", sendLength);
 			}
 
-			printf("Send data length: %d (NonBlocking)\n", sendLength);
+			printf("Send data length: %d\n", sendLength);
+			std::this_thread::sleep_for(1s);
 		}
-
-		printf("Send data length: %d\n", sendLength);
-		std::this_thread::sleep_for(1s);
 	}
 
 	RxSocketUtility::CloseSocket(clientSocket);

@@ -41,11 +41,10 @@ bool RxIocpCore::Dispatch(uint32 timeMilliseconds)
 	{
 		RxIocpObjectPtr spIocpObj = nullptr;
 
-		int32 errCode = ::WSAGetLastError();
-		switch (errCode)
+		switch (RxSocketUtility::HandleLastError())
 		{
 		case WSA_OPERATION_ABORTED: // 다시 시도			
-			RxSocketUtility::PrintLastErrorCode();
+			RxSocketUtility::HandleLastError();
 
 			spIocpObj = pIocpEvent->GetOwner();
 			spIocpObj->Dispatch(pIocpEvent, dwNumOfBytes);
@@ -54,7 +53,7 @@ bool RxIocpCore::Dispatch(uint32 timeMilliseconds)
 
 		default: // 무조건 아웃
 			::OutputDebugStringA("무조건 아웃임!\n");
-			break;
+			return false;
 		}
 	}
 	else

@@ -7,15 +7,15 @@
 #include "NetworkAddress.h"
 #include "Session.h"
 
-RxListener::RxListener(const RxServicePtr& spOwner, SOCKET listenSocket)
+RxListener::RxListener(const RxServicePtr& spOwner)
 {
-	DEFINE_DYNAMIC_CAST_OWNER(RxServerService, spOwner);
-	m_listenSocket = listenSocket;
+	m_spOwner = DYNAMIC_CAST_OWNER(RxServerService, spOwner);
+	m_listenSocket = RxSocketUtility::CreateAsynchronousSocket(IPPROTO_TCP);
 }
 
 RxListener::~RxListener()
 {
-	for (RxIocpEvent* pIocpEvent : m_iocpEvents)
+	for (RxIocpEvent* pIocpEvent : m_acceptEvents)
 	{
 		SAFE_DELETE(pIocpEvent);
 	}
@@ -28,7 +28,7 @@ HANDLE RxListener::BringHandle()
 	return (reinterpret_cast<HANDLE>(m_listenSocket));
 }
 
-void RxListener::Dispatch(RxIocpEvent* pIocpEvent, int32 numOfBytes)
+void RxListener::Dispatch(RxIocpEvent* pIocpEvent, uint32 numOfBytes)
 {
 	assert(pIocpEvent->GetNetworkEvent() == ENetworkEventType::Accept);
 	ProcessAccept(pIocpEvent);
@@ -54,11 +54,9 @@ bool RxListener::ReadyToAccept()
 	const uint32 acceptCount = 1;
 	for (uint32 i = 0; i < acceptCount; ++i)
 	{
-		RxIocpEvent* pIocpEvent = new RxIocpEvent(shared_from_this());
-		pIocpEvent->SetNetworkEvent(ENetworkEventType::Accept);
-
-		m_iocpEvents.push_back(pIocpEvent);
-		RegisterAccept(pIocpEvent);
+		RxIocpEvent* pAcceptEvent = new RxIocpEvent(shared_from_this(), ENetworkEventType::Accept);
+		m_acceptEvents.push_back(pAcceptEvent);
+		RegisterAccept(pAcceptEvent);
 	}
 
 	return true;
@@ -66,7 +64,7 @@ bool RxListener::ReadyToAccept()
 
 void RxListener::RegisterAccept(RxIocpEvent* pAcceptEvent)
 {
-	RxSessionPtr spSession = std::make_shared<RxSession>();
+	RxSessionPtr spSession = GET_OWNER_PTR(m_spOwner)->CreateSession();
 	pAcceptEvent->SetSession(spSession);
 
 	DWORD dwReceivedBytes = 0;
@@ -102,11 +100,11 @@ void RxListener::ProcessAccept(RxIocpEvent* pAcceptEvent)
 		return;
 	}
 
-	RxNetworkAddress networkAddr(sockAddr);
-	spSession->SetNetworkAddress(networkAddr);
 	printf("Client connected!\n");
 
-	// TODO
+	RxNetworkAddress networkAddr(sockAddr);
+	spSession->SetNetworkAddress(networkAddr);
+	spSession->ProcessConnect();
 
 	// 비동기 함수니까 반드시 재호출 필요!
 	RegisterAccept(pAcceptEvent);

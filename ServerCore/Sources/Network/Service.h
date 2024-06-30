@@ -2,7 +2,7 @@
 
 // 서버 또는 클라이언트가 처리하는 가장 큰 작업 단위
 
-enum class ERxServiceType
+enum class EServiceType
 {
 	Unknown = -1,
 	Client,
@@ -13,7 +13,7 @@ using SessionFactoryFunc = std::function<RxSessionPtr(void)>;
 
 struct RxServiceInfo
 {
-	ERxServiceType serviceType = ERxServiceType::Unknown;
+	EServiceType serviceType = EServiceType::Unknown;
 	RxNetworkAddress netAddress;
 	RxIocpCorePtr spIocpCore = nullptr;
 	SessionFactoryFunc sessionFactoryFunc = nullptr;
@@ -29,16 +29,23 @@ public:
 	virtual bool Startup() abstract;
 	virtual void Cleanup() abstract;
 
-	RxSessionPtr CreateSession();
+	RxSessionPtr CreateSession(); // 세션을 등록하는 건 나중
+	void AddSession(RxSessionPtr spSession);
+	void ReleaseSession(const RxSessionPtr& spSession);
 
 	bool IsExistSessionFactory() const { return (m_serviceInfo.sessionFactoryFunc != nullptr); }
 
 	uint32 GetMaxSessionCount() const { return m_serviceInfo.maxSessionCount; }
 	const RxNetworkAddress& GetNetworkAddress() const { return m_serviceInfo.netAddress; }
 	const RxIocpCorePtr& GetIocpCorePtr() const { return m_serviceInfo.spIocpCore; }
+	EServiceType GetServiceType() const { return m_serviceInfo.serviceType; }
 
 private:
+	std::mutex m_mutex;
 	RxServiceInfo m_serviceInfo;
+
+	// 세션은 중복되면 망하므로
+	std::set<RxSessionPtr> m_setSession;
 };
 /////////////////////////////////////////////////////////////////
 class RxClientService : public RxService

@@ -40,7 +40,27 @@ public:
 	GameSession() = default;
 	virtual ~GameSession() = default;
 
-private:
+	virtual void ProcessConnectImpl() override
+	{
+		printf("ProcessConnectImpl\n");
+	}
+
+	virtual void ProcessDisconnectImpl() override
+	{
+		printf("ProcessDisconnectImpl\n");
+	}
+
+	virtual uint32 ProcessReceiveImpl(BYTE* buffer, uint32 numOfBytes) override
+	{
+		printf("ProcessReceiveImpl (Recevied numOfBytes: %d)\n", numOfBytes);
+		//Send(buffer, numOfBytes);
+		return numOfBytes;
+	}
+
+	virtual void ProcessSendImpl(uint32 numOfBytes) override
+	{
+		printf("ProcessSendImpl (send numOfBytes: %d)\n", numOfBytes);
+	}
 };
 
 int main()
@@ -54,7 +74,7 @@ int main()
 
 	RxServiceInfo serviceInfo =
 	{
-		ERxServiceType::Server,
+		EServiceType::Server,
 		RxNetworkAddress(L"127.0.0.1", 7777),
 		std::make_shared<RxIocpCore>(),
 		[]() { return std::make_shared<GameSession>(); },
@@ -69,7 +89,11 @@ int main()
 		g_threadPool.AddTask(
 			[&]()
 			{
-				g_spServerService->GetIocpCorePtr()->Dispatch(INFINITE);
+				bool bDrive = true;
+				while (bDrive == true)
+				{
+					bDrive = g_spServerService->GetIocpCorePtr()->Dispatch(INFINITE);
+				}
 			}
 		);
 	}

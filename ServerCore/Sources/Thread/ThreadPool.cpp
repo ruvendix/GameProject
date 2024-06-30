@@ -5,7 +5,6 @@
 
 RxThreadPool::RxThreadPool()
 {
-	m_bAllStop.store(false);
 	m_hardwareConcurrencyThreadCount = std::thread::hardware_concurrency();
 
 	for (int i = 0; i < m_hardwareConcurrencyThreadCount; ++i)
@@ -35,10 +34,10 @@ void RxThreadPool::ProcessWorkerThread()
 		// Critical section
 		{
 			std::unique_lock<std::mutex> lock(m_mutex);
-			m_conditionVar.wait(lock, [this]() { return ((m_taskQueue.empty() == false) || (m_bAllStop == true)); });
+			m_conditionVar.wait(lock, [this]() { return ((m_taskQueue.empty() == false) || (m_bAtomicAllStop == true)); });
 
 			// 중단 시그널이 왔으면 탈출 (락은 자동 해제)
-			if ((m_bAllStop.load() == true) &&
+			if ((m_bAtomicAllStop == true) &&
 				(m_taskQueue.empty() == true))
 			{
 				return;
@@ -92,6 +91,6 @@ void RxThreadPool::Join()
 void RxThreadPool::Cleanup()
 {
 	// 이걸로 종료 신호를 줌
-	m_bAllStop.store(true);
+	m_bAtomicAllStop = true;
 	m_conditionVar.notify_all();
 }

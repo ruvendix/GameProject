@@ -17,7 +17,7 @@ void RxSocketUtility::Startup()
 	WSADATA wsaData;
 	if (::WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
-		PrintLastErrorCode();
+		HandleLastError();
 		return;
 	}
 
@@ -37,9 +37,38 @@ void RxSocketUtility::Cleanup()
 	::WSACleanup();
 }
 
-void RxSocketUtility::PrintLastErrorCode()
+int32 RxSocketUtility::HandleLastError()
 {
-	printf("Socket error code: %d\n", ::WSAGetLastError());
+	int32 lastErrorCode = ::WSAGetLastError();
+
+	switch (lastErrorCode)
+	{
+	case WSA_INVALID_HANDLE:
+		printf("유효하지 않은 핸들\n");
+		break;
+
+	case WSA_OPERATION_ABORTED:
+		printf("작업 중단\n");
+		break;
+
+	case WSA_IO_PENDING:
+		break;
+
+	default:
+		void* msgBuffer = nullptr;
+		::FormatMessage(
+			FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM,
+			NULL, lastErrorCode,
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			reinterpret_cast<LPTSTR>(&msgBuffer), 0, nullptr);
+
+		::OutputDebugString(reinterpret_cast<LPTSTR>(msgBuffer));
+		LocalFree(msgBuffer);
+
+		break;
+	}
+	
+	return lastErrorCode;
 }
 
 SOCKET RxSocketUtility::CreateBlockingSocket(int32 protocol)
@@ -55,7 +84,7 @@ SOCKET RxSocketUtility::CreateNonBlockingSocket(int32 protocol)
 	u_long socketMode = 1; // 논블로킹, 0이면 블로킹
 	if (::ioctlsocket(socket, FIONBIO, &socketMode) == INVALID_SOCKET)
 	{
-		PrintLastErrorCode();
+		HandleLastError();
 	}
 
 	return socket;
@@ -73,7 +102,7 @@ void RxSocketUtility::BindWindowsFunction(SOCKET socket, GUID wsaGuid, LPVOID* p
 	// SIO_GET_EXTENSION_FUNCTION_POINTER는 함수 포인터를 알려주므로 외부 함수로 받을 때는 더블 포인터를 사용!
 	if (::WSAIoctl(socket, SIO_GET_EXTENSION_FUNCTION_POINTER, &wsaGuid, sizeof(wsaGuid), ppFn, sizeof(*ppFn), &retBytes, nullptr, nullptr) == SOCKET_ERROR)
 	{
-		PrintLastErrorCode();
+		HandleLastError();
 	}
 }
 
@@ -81,7 +110,7 @@ void RxSocketUtility::BindSocket(SOCKET listenSocket, const SOCKADDR_IN& netAddr
 {
 	if (::bind(listenSocket, reinterpret_cast<const SOCKADDR*>(&netAddressData), sizeof(netAddressData)) == SOCKET_ERROR)
 	{
-		PrintLastErrorCode();
+		HandleLastError();
 	}
 }
 
@@ -99,13 +128,8 @@ void RxSocketUtility::Listen(SOCKET listenSocket, int32 backlog)
 {
 	if (::listen(listenSocket, backlog) == SOCKET_ERROR)
 	{
-		PrintLastErrorCode();
+		HandleLastError();
 	}
-}
-
-int32 RxSocketUtility::Connect(SOCKET clientSocket, const SOCKADDR_IN& netAddressData)
-{
-	return (::connect(clientSocket, reinterpret_cast<const SOCKADDR*>(&netAddressData), sizeof(netAddressData)));
 }
 
 SOCKET RxSocketUtility::Accept(SOCKET listenSocket, SOCKADDR_IN* pClientAddressData)
@@ -125,6 +149,27 @@ BOOL RxSocketUtility::AcceptEx(SOCKET listenSocket, RxSessionPtr spSession, DWOR
 		pReceivedBytes,
 		pAcceptEvent->GetOverlapped());
 
+	return bRet;
+}
+
+int32 RxSocketUtility::Connect(SOCKET clientSocket, const SOCKADDR_IN& netAddressData)
+{
+	return (::connect(clientSocket, reinterpret_cast<const SOCKADDR*>(&netAddressData), sizeof(netAddressData)));
+}
+
+BOOL RxSocketUtility::ConnectEx(SOCKET clientSocket, const SOCKADDR_IN& netAddressData, DWORD* pReceivedBytes, RxIocpEvent* pAcceptEvent)
+{
+	BOOL bRet = s_connectExFn(clientSocket,
+		reinterpret_cast<const SOCKADDR*>(&netAddressData),
+		sizeof(netAddressData),
+		nullptr, 0, pReceivedBytes, pAcceptEvent->GetOverlapped());
+
+	return bRet;
+}
+
+BOOL RxSocketUtility::DisconnectEx(SOCKET clientSocket, RxIocpEvent* pDisconnectEvent)
+{
+	BOOL bRet = s_disconnectExFn(clientSocket, pDisconnectEvent->GetOverlapped(), TF_REUSE_SOCKET, 0);
 	return bRet;
 }
 

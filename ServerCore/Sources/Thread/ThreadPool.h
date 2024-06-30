@@ -45,7 +45,7 @@ public:
 	void Join();
 	void Cleanup();
 
-	void ForceAllStop() { m_bAllStop.store(false); }
+	void ForceAllStop() { m_bAtomicAllStop = false; }
 
 private:
 	using TaskFuncType = std::function<void(void)>;
@@ -58,7 +58,7 @@ private:
 	std::condition_variable m_conditionVar;
 
 	std::queue<TaskFuncType> m_taskQueue;
-	std::atomic<bool> m_bAllStop;
+	std::atomic<bool> m_bAtomicAllStop;
 
 	// 쓰레드 Id 관리용
 	std::vector<uint32> m_threadIds;

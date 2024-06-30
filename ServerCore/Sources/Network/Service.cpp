@@ -42,7 +42,8 @@ public:
 
 RxSessionPtr RxService::CreateSession()
 {
-	RxSessionPtr spSession = std::make_shared<RxSession>();
+	RxSessionPtr spSession = m_serviceInfo.sessionFactoryFunc();
+	spSession->SetOwner(shared_from_this()); // 세션은 이 시점에 오너를 등록
 
 	if (m_serviceInfo.spIocpCore->Register(spSession) == false)
 	{
@@ -50,6 +51,18 @@ RxSessionPtr RxService::CreateSession()
 	}
 
 	return spSession;
+}
+
+void RxService::AddSession(RxSessionPtr spSession) // 여기서 레퍼런스 카운트 증가
+{
+	std::lock_guard<std::mutex> lock(m_mutex);
+	m_setSession.insert(spSession); // 레퍼런스 카운트 증가 안함
+}
+
+void RxService::ReleaseSession(const RxSessionPtr& spSession)
+{
+	std::lock_guard<std::mutex> lock(m_mutex);
+	m_setSession.erase(spSession);
 }
 /////////////////////////////////////////////////////////////////
 RxClientService::~RxClientService()
@@ -81,13 +94,7 @@ bool RxServerService::Startup()
 		return false;
 	}
 
-	SOCKET listenSocket = RxSocketUtility::CreateAsynchronousSocket(IPPROTO_TCP);
-	if (listenSocket == INVALID_SOCKET)
-	{
-		return false;
-	}
-
-	m_spListener = std::make_shared<RxListener>(shared_from_this(), listenSocket);
+	m_spListener = std::make_shared<RxListener>(shared_from_this());
 	assert(m_spListener != nullptr);
 
 	if (GetIocpCorePtr()->Register(m_spListener) == false)

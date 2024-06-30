@@ -9,5 +9,5 @@ public:
 	virtual ~RxIocpObject() = default;
 
 	virtual HANDLE BringHandle() abstract;
-	virtual void Dispatch(RxIocpEvent* pIocpEvent, int32 numOfBytes) abstract;
+	virtual void Dispatch(RxIocpEvent* pIocpEvent, uint32 numOfBytes) abstract;
 };
