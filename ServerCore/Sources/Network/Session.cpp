@@ -4,9 +4,14 @@
 #include "IocpEvent.h"
 #include "Service.h"
 
-RxSession::RxSession()
+namespace
 {
-	::ZeroMemory(m_receiveBuffer, sizeof(m_receiveBuffer));
+	const uint32 MAX_BLOCK_SIZE = 0x10000; // 64KB
+}
+
+RxSession::RxSession() :
+	m_receiveBuffer(MAX_BLOCK_SIZE)
+{
 	m_socket = RxSocketUtility::CreateAsynchronousSocket(IPPROTO_TCP);
 
 	m_pConnectEvent = new RxIocpEvent(ENetworkEventType::Connect);
@@ -70,14 +75,16 @@ bool RxSession::Connect()
 	return RegisterConnect();
 }
 
-void RxSession::Disconnect()
+void RxSession::Disconnect(const std::wstring_view& wszReason)
 {
 	if (m_bAtomicConnected == false)
 	{
 		return;
 	}
 
-	printf("연결 중단!\n");
+	std::wstring wstrReason = wszReason.data();
+	wstrReason += L" (접속 중인 클라이언트 강제로 중단)\n";
+	wprintf_s(wstrReason.c_str());
 
 	const RxSessionPtr& spThisSession = std::dynamic_pointer_cast<RxSession>(shared_from_this());
 	GET_OWNER_PTR(m_spOwner)->ReleaseSession(spThisSession);
@@ -150,8 +157,8 @@ void RxSession::RegisterReceive()
 	m_pReceiveEvent->SetOwner(shared_from_this());
 
 	WSABUF wsaBuffer;
-	wsaBuffer.buf = reinterpret_cast<char*>(m_receiveBuffer);
-	wsaBuffer.len = static_cast<ULONG>(MAX_RECEIVE_BUFFER_SIZE);
+	wsaBuffer.buf = reinterpret_cast<char*>(m_receiveBuffer.GetWrtiePosition());
+	wsaBuffer.len = static_cast<ULONG>(m_receiveBuffer.GetRemainSize()); // 얼만큼 읽을 건지?
 
 	DWORD flags = 0;
 	DWORD dwNumOfBytes = 0;
@@ -216,11 +223,28 @@ void RxSession::ProcessReceive(uint32 numOfBytes)
 
 	if (numOfBytes == 0)
 	{
-		Disconnect();
+		Disconnect(L"수신 받은 데이터가 없음");
 		return;
 	}
 
-	ProcessReceiveImpl(m_receiveBuffer, numOfBytes);
+	if (m_receiveBuffer.ProcessWrite(numOfBytes) == false)
+	{
+		Disconnect(L"수신 받은 데이터가 너무 많아서 쓸 수 없음");
+		return;
+	}
+
+	uint32 dataSize = m_receiveBuffer.GetDataSize();
+	uint32 processedDataSize = ProcessReceiveImpl(m_receiveBuffer.GetReadPosition(), dataSize);
+
+	if ((processedDataSize < 0) || // 처리된 데이터 크기가 0보다 작으면 문제있음
+		(processedDataSize < dataSize)) // 요청한만큼 처리를 못했으니 문제있음
+	{
+		Disconnect(L"요청한만큼 수신 처리를 못했음");
+		return;
+	}
+
+	// 수신 버퍼 정리
+	m_receiveBuffer.Cleanup();
 
 	// 수신 등록
 	RegisterReceive();
@@ -233,7 +257,7 @@ void RxSession::ProcessSend(RxIocpEvent* pSendEvent, uint32 numOfBytes)
 
 	if (numOfBytes == 0)
 	{
-		Disconnect();
+		Disconnect(L"송신할 데이터가 없음");
 		return;
 	}
 
@@ -248,7 +272,7 @@ int32 RxSession::HandleLastError()
 	{
 	case WSAECONNRESET:
 	case WSAECONNABORTED:
-		Disconnect();
+		Disconnect(L"치명적인 오류");
 		break;
 	}
 

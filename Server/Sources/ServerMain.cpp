@@ -28,7 +28,7 @@ BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
 		::OutputDebugStringA("서버 프로그램 종료 (서브 쓰레드들 정리중)\n");
 
 		// 모든 서브 쓰레드들이 안전하게 종료될 때까지 시간 벌이
-		std::this_thread::sleep_for(1ms);
+		std::this_thread::sleep_for(1s);
 		return TRUE;
 	}
 	return FALSE;

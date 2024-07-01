@@ -21,3 +21,5 @@ if (spOwner != nullptr) \
 std::dynamic_pointer_cast<OwnerCastType>(spOwner)
 
 #define USE_PARENT(parentType) using Parent = parentType
+
+#define CHECK_VALID_INDEX(idx, totalSize) assert((idx >= 0) && (idx < totalSize))

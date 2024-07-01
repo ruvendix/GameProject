@@ -142,7 +142,7 @@ BOOL RxSocketUtility::AcceptEx(SOCKET listenSocket, RxSessionPtr spSession, DWOR
 {
 	BOOL bRet = s_acceptExFn(listenSocket,
 		spSession->GetSocket(),
-		spSession->GetReceiveBuffer(),
+		spSession->GetReceiveBufferWritePosition(),
 		0,
 		sizeof(SOCKADDR_IN) + 16,
 		sizeof(SOCKADDR_IN) + 16,

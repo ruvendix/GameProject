@@ -158,6 +158,7 @@
     <ClInclude Include="Sources\Network\IocpObject.h" />
     <ClInclude Include="Sources\Network\Listener.h" />
     <ClInclude Include="Sources\Network\NetworkAddress.h" />
+    <ClInclude Include="Sources\Network\ReceiveBuffer.h" />
     <ClInclude Include="Sources\Network\Service.h" />
     <ClInclude Include="Sources\Network\Session.h" />
     <ClInclude Include="Sources\Socket\SocketUtility.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="Sources\Network\IocpObject.cpp" />
     <ClCompile Include="Sources\Network\Listener.cpp" />
     <ClCompile Include="Sources\Network\NetworkAddress.cpp" />
+    <ClCompile Include="Sources\Network\ReceiveBuffer.cpp" />
     <ClCompile Include="Sources\Network\Service.cpp" />
     <ClCompile Include="Sources\Network\Session.cpp" />
     <ClCompile Include="Sources\Socket\SocketUtility.cpp" />

@@ -2,6 +2,7 @@
 
 #include "IocpObject.h"
 #include "NetworkAddress.h"
+#include "ReceiveBuffer.h"
 
 class RxIocpEvent;
 
@@ -23,7 +24,7 @@ public:
 	// 가장 큰 업무 단위
 	void Send(BYTE* buffer, uint32 numOfBytes);
 	bool Connect();
-	void Disconnect();
+	void Disconnect(const std::wstring_view& wszReason);
 
 	bool RegisterConnect();
 	bool RegisterDisconnect();
@@ -38,7 +39,7 @@ public:
 	int32 HandleLastError();
 
 	SOCKET GetSocket() const { return m_socket; }
-	BYTE* GetReceiveBuffer() { return m_receiveBuffer; }
+	BYTE* GetReceiveBufferWritePosition() { return m_receiveBuffer.GetWrtiePosition(); }
 	void SetNetworkAddress(const RxNetworkAddress& netAddr) { m_netAddr = netAddr; }
 	void SetOwner(const RxServicePtr& spService) { SET_OWNER_PTR(spService); }
 
@@ -52,7 +53,9 @@ private:
 
 	SOCKET m_socket = INVALID_SOCKET;
 	RxNetworkAddress m_netAddr;
-	BYTE m_receiveBuffer[MAX_RECEIVE_BUFFER_SIZE];
+
+	// 송수신 버퍼
+	RxReceiveBuffer m_receiveBuffer;
 
 	// 재사용하는 IocpEvent
 	RxIocpEvent* m_pConnectEvent = nullptr;

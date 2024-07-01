@@ -34,6 +34,7 @@
     <ClInclude Include="Sources\Thread\ThreadPool.h" />
     <ClInclude Include="Sources\Global\Types.h" />
     <ClInclude Include="Sources\Network\Service.h" />
+    <ClInclude Include="Sources\Network\ReceiveBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Socket\SocketUtility.cpp">
@@ -67,6 +68,9 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Network\Service.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\ReceiveBuffer.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
