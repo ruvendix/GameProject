@@ -1,8 +1,7 @@
 #include "Pch.h"
-#include "ServerCore/Sources/Thread/ThreadPool.h"
-#include "ServerCore/Sources/Network/Service.h"
-#include "ServerCore/Sources/Network/IocpCore.h"
-#include "ServerCore/Sources/Network/Session.h"
+
+#include "Session/GameSession.h"
+#include "Session/GameSessionManager.h"
 
 RxServicePtr g_spServerService;
 RxThreadPool g_threadPool; // 풀은 여러개 가능
@@ -21,6 +20,8 @@ BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
 		(signal == CTRL_LOGOFF_EVENT) ||
 		(signal == CTRL_SHUTDOWN_EVENT))
 	{
+		RxGameSessionManager::I()->Destory();
+
 		g_spServerService->GetIocpCorePtr()->Cleanup();
 		g_threadPool.Cleanup();
 		RxSocketUtility::Cleanup();
@@ -33,35 +34,6 @@ BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
 	}
 	return FALSE;
 }
-
-class GameSession : public RxSession
-{
-public:
-	GameSession() = default;
-	virtual ~GameSession() = default;
-
-	virtual void ProcessConnectImpl() override
-	{
-		printf("ProcessConnectImpl\n");
-	}
-
-	virtual void ProcessDisconnectImpl() override
-	{
-		printf("ProcessDisconnectImpl\n");
-	}
-
-	virtual uint32 ProcessReceiveImpl(BYTE* buffer, uint32 numOfBytes) override
-	{
-		printf("ProcessReceiveImpl (Recevied numOfBytes: %d)\n", numOfBytes);
-		//Send(buffer, numOfBytes);
-		return numOfBytes;
-	}
-
-	virtual void ProcessSendImpl(uint32 numOfBytes) override
-	{
-		printf("ProcessSendImpl (send numOfBytes: %d)\n", numOfBytes);
-	}
-};
 
 int main()
 {
@@ -77,7 +49,7 @@ int main()
 		EServiceType::Server,
 		RxNetworkAddress(L"127.0.0.1", 7777),
 		std::make_shared<RxIocpCore>(),
-		[]() { return std::make_shared<GameSession>(); },
+		[]() { return std::make_shared<RxGameSession>(); },
 		100
 	};
 

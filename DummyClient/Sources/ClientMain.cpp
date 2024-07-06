@@ -1,4 +1,5 @@
 #include "Pch.h"
+#include "Session/ServerSession.h"
 
 /*
 <클라이언트의 TCP 소켓>
@@ -9,89 +10,70 @@
 -recv: 수신 버퍼에 도착한 데이터를 User 수준의 버퍼에 복사
 */
 
+RxServicePtr g_spClientService;
+RxThreadPool g_threadPool; // 풀은 여러개 가능
+
+BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
+{
+	if ((signal == CTRL_C_EVENT) ||
+		(signal == CTRL_CLOSE_EVENT) ||
+		(signal == CTRL_LOGOFF_EVENT) ||
+		(signal == CTRL_SHUTDOWN_EVENT))
+	{
+		g_spClientService->GetIocpCorePtr()->Cleanup();
+		g_threadPool.Cleanup();
+		RxSocketUtility::Cleanup();
+
+		::OutputDebugStringA("서버 프로그램 종료 (서브 쓰레드들 정리중)\n");
+
+		// 모든 서브 쓰레드들이 안전하게 종료될 때까지 시간 벌이
+		std::this_thread::sleep_for(1s);
+		return TRUE;
+	}
+	return FALSE;
+}
+
 int main()
 {
-	//RxSocketUtility::Startup();
-
-	// WSA => Window Socket Application Interface
-	WSADATA wsaData;
-	if (::WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+	if (!SetConsoleCtrlHandler(OnClose_ConsoleHandler, TRUE))
 	{
-		return 0;
+		return EXIT_FAILURE;
 	}
 
-	// 논블로킹 소켓으로 생성
-	SOCKET clientSocket = RxSocketUtility::CreateNonBlockingSocket(IPPROTO_TCP);
+	RxSocketUtility::Startup();
 
-	// 접속할 서버 주소 정보
-	SOCKADDR_IN serverAddressData;
-	serverAddressData.sin_family = AF_INET;
-	::inet_pton(AF_INET, "127.0.0.1", &serverAddressData.sin_addr);
-	serverAddressData.sin_port = ::htons(7777);
-
-	// 서버에 연결 시도
-	while (true)
+	RxServiceInfo serviceInfo =
 	{
-		//if (RxSocketUtility::Connect(clientSocket, serverAddressData) == SOCKET_ERROR)
-		if (::connect(clientSocket, (SOCKADDR*)&serverAddressData, sizeof(serverAddressData)) == SOCKET_ERROR)
-		{
-			int32 errorCode = RxSocketUtility::HandleLastError();
+		EServiceType::Client,
+		RxNetworkAddress(L"127.0.0.1", 7777),
+		std::make_shared<RxIocpCore>(),
+		[]() { return std::make_shared<RxServerSession>(); },
+		5
+	};
 
-			// 원래는 블로킹해야 하지만 논블로킹이면 통과
-			if (errorCode == WSAEWOULDBLOCK)
-			{
-				continue;
-			}
+	g_spClientService = std::make_shared<RxClientService>(serviceInfo);
+	g_spClientService->Startup();
 
-			// 이미 연결된 상태라면 빠져나감(오류 아님)
-			if (errorCode == WSAEISCONN)
-			{
-				break;
-			}
-		}
-	}
-
-	fd_set writes;
-
-	// 서버와 상호작용
-	while (true)
+	for (uint32 i = 0; i < 5; ++i)
 	{
-		// 소켓 셋 초기화
-		FD_ZERO(&writes);
-
-		// ListenSocket 등록
-		FD_SET(clientSocket, &writes);
-
-		if (FD_ISSET(clientSocket, &writes))
-		{
-			char sendBuffer[100] = "Hello i am client!";
-			int32 sendSize = sizeof(sendBuffer);
-
-			int32 sendLength = RxSocketUtility::Send(clientSocket, sendBuffer, sizeof(sendBuffer));
-			if (sendLength == SOCKET_ERROR)
+		g_threadPool.AddTask(
+			[&]()
 			{
-				int32 errorCode = RxSocketUtility::HandleLastError();
-
-				// 원래는 블로킹해야 하지만 논블로킹이면 통과
-				if (errorCode == WSAEWOULDBLOCK)
+				bool bDrive = true;
+				while (bDrive == true)
 				{
-					continue;
+					bDrive = g_spClientService->GetIocpCorePtr()->Dispatch(INFINITE);
 				}
-				else if (errorCode == WSAECONNRESET)
-				{
-					break;
-				}
-
-				printf("Send data length: %d (NonBlocking)\n", sendLength);
 			}
-
-			printf("Send data length: %d\n", sendLength);
-			std::this_thread::sleep_for(1s);
-		}
+		);
 	}
 
-	RxSocketUtility::CloseSocket(clientSocket);
-	RxSocketUtility::Cleanup();
+	g_threadPool.Join();
+
+	/*
+	멀티쓰레드 콘솔 프로그램은 종료 신호를 따로 보내야함...
+	종료 처리는 ConsoleHandler에서 담당
+	*/
 
 	return 0;
 }

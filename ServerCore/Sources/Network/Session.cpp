@@ -3,6 +3,7 @@
 
 #include "IocpEvent.h"
 #include "Service.h"
+#include "SendBuffer.h"
 
 namespace
 {
@@ -17,6 +18,7 @@ RxSession::RxSession() :
 	m_pConnectEvent = new RxIocpEvent(ENetworkEventType::Connect);
 	m_pDisconnectEvent = new RxIocpEvent(ENetworkEventType::Disconnect);
 	m_pReceiveEvent = new RxIocpEvent(ENetworkEventType::Receive);
+	m_pSendEvent = new RxIocpEvent(ENetworkEventType::Send);
 }
 
 RxSession::~RxSession()
@@ -24,6 +26,7 @@ RxSession::~RxSession()
 	SAFE_DELETE(m_pConnectEvent);
 	SAFE_DELETE(m_pDisconnectEvent);
 	SAFE_DELETE(m_pReceiveEvent);
+	SAFE_DELETE(m_pSendEvent);
 
 	RxSocketUtility::CloseSocket(m_socket);
 }
@@ -50,24 +53,34 @@ void RxSession::Dispatch(RxIocpEvent* pIocpEvent, uint32 numOfBytes)
 		break;
 
 	case ENetworkEventType::Send:
-		ProcessSend(pIocpEvent, numOfBytes);
+		ProcessSend(numOfBytes);
 		break;
 	}
 }
 
-void RxSession::Send(BYTE* buffer, uint32 numOfBytes)
+void RxSession::Send(const RxSendBufferPtr& spSendBuffer)
 {
-	/*
-	생각해야 하는 문제
-	1) 버퍼 관리는?
-	2) 각 송신 처리는 하나씩? 쌓아서?
-	*/
+	// 송신할 버퍼는 여러 클라이언트로 보내는 기능이 있어야 함!
 
-	RxIocpEvent* pSendEvent = new RxIocpEvent(shared_from_this(), ENetworkEventType::Send);
-	pSendEvent->GetBuffer().resize(numOfBytes);
-	::CopyMemory(pSendEvent->GetBuffer().data(), buffer, numOfBytes);
+	bool bRegisterSend = false;
 
-	RegisterSend(pSendEvent);
+	{
+		std::lock_guard<std::mutex> lock(m_mutex);
+		m_queueSendBuffer.push(spSendBuffer);
+		bRegisterSend = (m_bAtomicSendRegistered.exchange(true) == false);
+
+		// 위와 같은 코드
+		/*if (_sendRegistered == false)
+        {
+        	_sendRegistered = true;
+        	RegisterSend();
+        }*/
+	}
+
+	if (bRegisterSend == true)
+	{
+		RegisterSend();
+	}	
 }
 
 bool RxSession::Connect()
@@ -77,7 +90,19 @@ bool RxSession::Connect()
 
 void RxSession::Disconnect(const std::wstring_view& wszReason)
 {
-	if (m_bAtomicConnected == false)
+	/*
+	exchagne()는 넣은 값으로 변경하는데
+	호출되기 전의 값을 반환하는 함수임
+
+	즉, exchange(false)의 상황에서는
+	호출전 true => 호출후 false, 반환값 true
+	호출전 false => 호출후 false, 반환값 false
+
+	하나의 쓰레드가 atomic의 값을 바꾸고 최초로 로직을 처리했다면
+	다른 쓰레드가 atomic의 값을 바꿔도 값은 유지되므로
+	중복 처리되면 망하는 로직을 방어할 수 있음
+	*/
+	if (m_bAtomicConnected.exchange(false) == false)
 	{
 		return;
 	}
@@ -111,8 +136,10 @@ bool RxSession::RegisterConnect()
 
 	RxSocketUtility::BindAnyAddress(m_socket, 0);
 
-	// 이벤트 오너는 세션
-	m_pConnectEvent->SetOwner(shared_from_this());
+	// 커넥트 이벤트는 세션을 따로 이용 (오너는 weak_ptr이므로 외부에서 레퍼런스 카운트를 날리면 소멸됨)
+	const RxSessionPtr& spSession = std::dynamic_pointer_cast<RxSession>(shared_from_this());
+	m_pConnectEvent->SetSession(spSession);
+	m_pConnectEvent->SetOwner(spSession);
 
 	DWORD dwNumOfBytes = 0;
 	SOCKADDR_IN sockAddr = GET_OWNER_PTR(m_spOwner)->GetNetworkAddress().GetSockAddr();
@@ -122,7 +149,7 @@ bool RxSession::RegisterConnect()
 		int32 errorCode = RxSocketUtility::HandleLastError();
 		if (errorCode != WSA_IO_PENDING)
 		{
-			m_pConnectEvent->SetOwner(nullptr);
+			m_pConnectEvent->SetSession(nullptr);
 			return false;
 		}
 	}
@@ -173,25 +200,55 @@ void RxSession::RegisterReceive()
 	}
 }
 
-void RxSession::RegisterSend(RxIocpEvent* pSendEvent)
+void RxSession::RegisterSend()
 {
 	if (IsConnected() == false)
 	{
 		return;
 	}
+	
+	m_pSendEvent->SetOwner(shared_from_this());
 
-	WSABUF wsaBuffer;
-	wsaBuffer.buf = reinterpret_cast<char*>(pSendEvent->GetBuffer().data());
-	wsaBuffer.len = static_cast<ULONG>(pSendEvent->GetBuffer().size());
+	std::vector<RxSendBufferPtr>& vecSendBuffer = m_pSendEvent->GetSendBuffer();
+
+	// 송신할 데이터를 SendEvent에 등록
+	{
+		std::lock_guard<std::mutex> lock(m_mutex);
+
+		//uint32 writeSize = 0;
+		while (m_queueSendBuffer.empty() == false)
+		{
+			const RxSendBufferPtr& spSendBuffer = m_queueSendBuffer.front();
+			//writeSize += spSendBuffer->GetWriteSize(); // 누적
+
+			m_queueSendBuffer.pop();
+			vecSendBuffer.push_back(spSendBuffer);
+		}
+	}
+
+	// Scatter-Gather (흩어져 있는 데이터들을 모아서 한 방에 보낸다)
+	std::vector<WSABUF> vecWsaBuffer;
+	vecWsaBuffer.reserve(vecSendBuffer.size());
+	for (const RxSendBufferPtr& spSendBuffer : vecSendBuffer)
+	{
+		assert(spSendBuffer != nullptr);
+
+		WSABUF wsaBuffer;
+		wsaBuffer.buf = reinterpret_cast<char*>(spSendBuffer->GetBufferPointer());
+		wsaBuffer.len = static_cast<ULONG>(spSendBuffer->GetWriteSize());
+		vecWsaBuffer.push_back(wsaBuffer);
+	}
 
 	DWORD dwNumOfBytes = 0;
-	if (::WSASend(m_socket, &wsaBuffer, 1, &dwNumOfBytes, 0, pSendEvent->GetOverlapped(), nullptr) == SOCKET_ERROR)
+	if (::WSASend(m_socket, vecWsaBuffer.data(), vecWsaBuffer.size(),
+			&dwNumOfBytes, 0, m_pSendEvent->GetOverlapped(), nullptr) == SOCKET_ERROR)
 	{
-		int32 errorCode = RxSocketUtility::HandleLastError();
+		int32 errorCode = HandleLastError();
 		if (errorCode != WSA_IO_PENDING)
 		{
-			pSendEvent->SetOwner(nullptr);
-			SAFE_DELETE(pSendEvent);
+			m_pSendEvent->SetOwner(nullptr);
+			m_pSendEvent->GetSendBuffer().clear();
+			m_bAtomicSendRegistered = false;
 		}
 	}
 }
@@ -250,10 +307,10 @@ void RxSession::ProcessReceive(uint32 numOfBytes)
 	RegisterReceive();
 }
 
-void RxSession::ProcessSend(RxIocpEvent* pSendEvent, uint32 numOfBytes)
+void RxSession::ProcessSend(uint32 numOfBytes)
 {
-	pSendEvent->SetOwner(nullptr);
-	SAFE_DELETE(pSendEvent);
+	m_pSendEvent->SetOwner(nullptr);
+	m_pSendEvent->GetSendBuffer().clear();
 
 	if (numOfBytes == 0)
 	{
@@ -262,6 +319,26 @@ void RxSession::ProcessSend(RxIocpEvent* pSendEvent, uint32 numOfBytes)
 	}
 
 	ProcessSendImpl(numOfBytes);
+
+	bool bRegisteredSend = false;
+	{
+		std::lock_guard<std::mutex> lock(m_mutex);
+
+		if (m_queueSendBuffer.empty() == true)
+		{
+			m_bAtomicSendRegistered = false;
+		}
+		else
+		{
+			// 여기까지 처리하는동안 다른 쓰레드가 송신 큐에 밀어넣은 경우
+			bRegisteredSend = true;
+		}
+	}
+
+	if (bRegisteredSend == true)
+	{
+		RegisterSend();
+	}
 }
 
 int32 RxSession::HandleLastError()

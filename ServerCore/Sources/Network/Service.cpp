@@ -72,7 +72,27 @@ RxClientService::~RxClientService()
 
 bool RxClientService::Startup()
 {
-	return Parent::Startup();
+	if (Parent::Startup() == false)
+	{
+		return false;
+	}
+
+	if (IsExistSessionFactory() == false)
+	{
+		return false;
+	}
+
+	const uint32 sessionCount = GetMaxSessionCount();
+	for (uint32 i = 0; i < sessionCount; ++i)
+	{
+		RxSessionPtr spSession = CreateSession();
+		if (spSession->Connect() == false)
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void RxClientService::Cleanup()
@@ -87,7 +107,10 @@ RxServerService::~RxServerService()
 
 bool RxServerService::Startup()
 {
-	Parent::Startup();
+	if (Parent::Startup() == false)
+	{
+		return false;
+	}
 
 	if (IsExistSessionFactory() == false)
 	{

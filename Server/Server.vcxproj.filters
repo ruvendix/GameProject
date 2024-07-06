@@ -16,10 +16,19 @@
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <Filter>Sources\Pch</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Session\GameSession.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Session\GameSessionManager.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Pch\Pch.h">
       <Filter>Sources\Pch</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Session\GameSession.h" />
+    <ClInclude Include="Sources\Session\GameSessionManager.h" />
+    <ClInclude Include="Sources\Global\Types.h" />
   </ItemGroup>
 </Project>

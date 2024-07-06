@@ -22,19 +22,19 @@ public:
 	virtual void   ProcessSendImpl(uint32 numOfBytes) { }
 
 	// 가장 큰 업무 단위
-	void Send(BYTE* buffer, uint32 numOfBytes);
+	void Send(const RxSendBufferPtr& spSendBuffer);
 	bool Connect();
 	void Disconnect(const std::wstring_view& wszReason);
 
 	bool RegisterConnect();
 	bool RegisterDisconnect();
 	void RegisterReceive();
-	void RegisterSend(RxIocpEvent* pSendEvent);
+	void RegisterSend();
 		 
 	void ProcessConnect();
 	void ProcessDisconnect();
 	void ProcessReceive(uint32 numOfBytes);
-	void ProcessSend(RxIocpEvent* pSendEvent, uint32 numOfBytes);
+	void ProcessSend(uint32 numOfBytes);
 
 	int32 HandleLastError();
 
@@ -54,11 +54,16 @@ private:
 	SOCKET m_socket = INVALID_SOCKET;
 	RxNetworkAddress m_netAddr;
 
-	// 송수신 버퍼
+	// 수신 버퍼
 	RxReceiveBuffer m_receiveBuffer;
+
+	// 송신 버퍼 (멀티쓰레드 사용)
+	std::queue<RxSendBufferPtr> m_queueSendBuffer;
+	std::atomic<bool> m_bAtomicSendRegistered = false;
 
 	// 재사용하는 IocpEvent
 	RxIocpEvent* m_pConnectEvent = nullptr;
 	RxIocpEvent* m_pDisconnectEvent = nullptr;
 	RxIocpEvent* m_pReceiveEvent = nullptr;
+	RxIocpEvent* m_pSendEvent = nullptr;
 };

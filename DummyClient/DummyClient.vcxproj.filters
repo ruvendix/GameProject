@@ -16,10 +16,14 @@
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <Filter>Sources\Pch</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Session\ServerSession.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Pch\Pch.h">
       <Filter>Sources\Pch</Filter>
     </ClInclude>
+    <ClInclude Include="Sources\Session\ServerSession.h" />
   </ItemGroup>
 </Project>

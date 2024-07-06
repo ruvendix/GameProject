@@ -6,10 +6,10 @@ namespace
 	const uint32 MAX_BUFFER_BLOCK_COUNT = 10;
 }
 
-RxReceiveBuffer::RxReceiveBuffer(uint32 blockSize)
+RxReceiveBuffer::RxReceiveBuffer(uint32 eachBlockSize)
 {
-	m_eachBlockSize = blockSize;
-	m_capacity = (blockSize * MAX_BUFFER_BLOCK_COUNT);
+	m_eachBlockSize = eachBlockSize;
+	m_capacity = (eachBlockSize * MAX_BUFFER_BLOCK_COUNT);
 	m_blockBuffers.resize(m_capacity);
 }
 

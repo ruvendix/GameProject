@@ -29,7 +29,7 @@ public:
 	RxIocpObjectPtr GetOwner() const { return GET_OWNER_PTR(m_spOwner); }
 	void SetOwner(const RxIocpObjectPtr& spOwner) { SET_OWNER_PTR(spOwner); }
 
-	std::vector<BYTE>& GetBuffer() { return m_buffer; }
+	std::vector<RxSendBufferPtr>& GetSendBuffer() { return m_vecSendBuffer; }
 
 private:
 	OVERLAPPED m_overlapped; // 무조건 처음에 둬야 함!
@@ -38,6 +38,6 @@ private:
 	ENetworkEventType m_netEvent = ENetworkEventType::Unknown;
 	RxSessionPtr m_spSession = nullptr;
 
-	// 임시
-	std::vector<BYTE> m_buffer;
+	// 원래는 이벤트마다 클래스로 만들겠지만 이거 하나만 달라서 의미가 없음
+	std::vector<RxSendBufferPtr> m_vecSendBuffer;
 };

@@ -3,7 +3,7 @@
 class RxReceiveBuffer
 {
 public:
-	RxReceiveBuffer(uint32 blockBufferSize);
+	RxReceiveBuffer(uint32 eachBlockSize);
 	~RxReceiveBuffer();
 
 	void Cleanup();
