@@ -30,12 +30,15 @@
     <ClInclude Include="Sources\Network\IocpEvent.h" />
     <ClInclude Include="Sources\Network\NetworkAddress.h" />
     <ClInclude Include="Sources\Network\Listener.h" />
-    <ClInclude Include="Sources\Network\Session.h" />
+    <ClInclude Include="Sources\Network\Session\Session.h" />
     <ClInclude Include="Sources\Thread\ThreadPool.h" />
     <ClInclude Include="Sources\Global\Types.h" />
     <ClInclude Include="Sources\Network\Service.h" />
-    <ClInclude Include="Sources\Network\ReceiveBuffer.h" />
-    <ClInclude Include="Sources\Network\SendBuffer.h" />
+    <ClInclude Include="Sources\Network\Buffer\ReceiveBuffer.h" />
+    <ClInclude Include="Sources\Network\Buffer\SendBuffer.h" />
+    <ClInclude Include="Sources\Network\Session\PacketSession.h" />
+    <ClInclude Include="Sources\Network\Buffer\BufferReader.h" />
+    <ClInclude Include="Sources\Network\Buffer\BufferWriter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\Socket\SocketUtility.cpp">
@@ -62,7 +65,7 @@
     <ClCompile Include="Sources\Network\Listener.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Network\Session.cpp">
+    <ClCompile Include="Sources\Network\Session\Session.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Sources\Thread\ThreadPool.cpp">
@@ -71,10 +74,19 @@
     <ClCompile Include="Sources\Network\Service.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Network\ReceiveBuffer.cpp">
+    <ClCompile Include="Sources\Network\Buffer\ReceiveBuffer.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Network\SendBuffer.cpp">
+    <ClCompile Include="Sources\Network\Buffer\SendBuffer.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\Session\PacketSession.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\Buffer\BufferReader.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Network\Buffer\BufferWriter.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>

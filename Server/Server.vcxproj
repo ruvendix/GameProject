@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\Packet\ServerPacketHandler.cpp" />
     <ClCompile Include="Sources\ServerMain.cpp" />
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Global\Types.h" />
+    <ClInclude Include="Sources\Packet\ServerPacketHandler.h" />
     <ClInclude Include="Sources\Pch\Pch.h" />
     <ClInclude Include="Sources\Session\GameSession.h" />
     <ClInclude Include="Sources\Session\GameSessionManager.h" />

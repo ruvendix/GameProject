@@ -11,6 +11,7 @@ public:
 	uint32 GetCapacity() const { return m_buffer.size(); }
 
 	void CopyBuffer(void* buffer, uint32 size);
+	void SetWriteSize(uint32 writeSize) { m_writeSize = writeSize; }
 
 private:
 	std::vector<BYTE> m_buffer;

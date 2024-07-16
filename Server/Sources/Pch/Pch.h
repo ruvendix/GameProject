@@ -9,9 +9,11 @@
 #include "ServerCore/Sources/Thread/ThreadPool.h"
 
 #include "ServerCore/Sources/Network/IocpCore.h"
+#include "ServerCore/Sources/Network/IocpObject.h"
 #include "ServerCore/Sources/Network/NetworkAddress.h"
-#include "ServerCore/Sources/Network/Session.h"
-#include "ServerCore/Sources/Network/SendBuffer.h"
+#include "ServerCore/Sources/Network/Buffer/ReceiveBuffer.h"
+#include "ServerCore/Sources/Network/Buffer/SendBuffer.h"
+#include "ServerCore/Sources/Network/Session/PacketSession.h"
 #include "ServerCore/Sources/Network/Service.h"
 
 #include "ServerCore/Sources/Socket/SocketUtility.h"

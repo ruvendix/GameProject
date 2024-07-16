@@ -25,16 +25,10 @@ void RxGameSession::ProcessDisconnectImpl()
 	RxGameSessionManager::I()->RemoveGameSession(refSpGameSession);
 }
 
-uint32 RxGameSession::ProcessReceiveImpl(BYTE* buffer, uint32 numOfBytes)
+void RxGameSession::ProcessReceivePacket(BYTE* buffer, uint32 numOfBytes)
 {
-	// Echo
-	printf("ProcessReceiveImpl numOfBytes(%d)\n", numOfBytes);
-
-	RxSendBufferPtr spSendBuffer = std::make_shared<RxSendBuffer>(4096);
-	spSendBuffer->CopyBuffer(buffer, numOfBytes);
-
-	RxGameSessionManager::I()->Broadcast(spSendBuffer);
-	return numOfBytes;
+	RxPacketHeader packetHeader = *(reinterpret_cast<RxPacketHeader*>(buffer));
+	printf("ProcessReceivePacket packetHeader(Id: %d, Size: %d)\n", packetHeader.protocolId, packetHeader.packetSize);
 }
 
 void RxGameSession::ProcessSendImpl(uint32 numOfBytes)

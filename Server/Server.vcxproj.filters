@@ -22,6 +22,9 @@
     <ClCompile Include="Sources\Session\GameSessionManager.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Packet\ServerPacketHandler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Pch\Pch.h">
@@ -30,5 +33,6 @@
     <ClInclude Include="Sources\Session\GameSession.h" />
     <ClInclude Include="Sources\Session\GameSessionManager.h" />
     <ClInclude Include="Sources\Global\Types.h" />
+    <ClInclude Include="Sources\Packet\ServerPacketHandler.h" />
   </ItemGroup>
 </Project>

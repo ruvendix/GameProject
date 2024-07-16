@@ -1,6 +1,8 @@
 #include "Pch.h"
 #include "ServerSession.h"
 
+#include "Packet/ClientPacketHandler.h"
+
 namespace
 {
 	char g_arrDataBuffer[] = "Hello world";
@@ -20,10 +22,10 @@ void RxServerSession::ProcessConnectImpl()
 {
 	printf("Connected to server\n");
 
-	RxSendBufferPtr spSendBuffer = std::make_shared<RxSendBuffer>(4096);
-	spSendBuffer->CopyBuffer(g_arrDataBuffer, sizeof(g_arrDataBuffer));
+	//RxSendBufferPtr spSendBuffer = std::make_shared<RxSendBuffer>(4096);
+	//spSendBuffer->CopyBuffer(g_arrDataBuffer, sizeof(g_arrDataBuffer));
 
-	Send(spSendBuffer);
+	//Send(spSendBuffer);
 }
 
 void RxServerSession::ProcessDisconnectImpl()
@@ -37,10 +39,12 @@ uint32 RxServerSession::ProcessReceiveImpl(BYTE* buffer, uint32 numOfBytes)
 
 	std::this_thread::sleep_for(0.1s);
 
-	RxSendBufferPtr spSendBuffer = std::make_shared<RxSendBuffer>(4096);
-	spSendBuffer->CopyBuffer(g_arrDataBuffer, sizeof(g_arrDataBuffer));
+	RxClientPacketHandler::I()->HandlePacket(buffer, numOfBytes);
 
-	Send(spSendBuffer);
+	//RxSendBufferPtr spSendBuffer = std::make_shared<RxSendBuffer>(4096);
+	//spSendBuffer->CopyBuffer(g_arrDataBuffer, sizeof(g_arrDataBuffer));
+
+	//Send(spSendBuffer);
 	return numOfBytes;
 }
 

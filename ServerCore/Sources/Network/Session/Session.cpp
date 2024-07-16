@@ -1,9 +1,9 @@
 #include "Pch.h"
 #include "Session.h"
 
-#include "IocpEvent.h"
-#include "Service.h"
-#include "SendBuffer.h"
+#include "Network/IocpEvent.h"
+#include "Network/Service.h"
+#include "Network/Buffer/SendBuffer.h"
 
 namespace
 {

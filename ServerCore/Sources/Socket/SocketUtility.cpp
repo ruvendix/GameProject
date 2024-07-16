@@ -2,7 +2,7 @@
 #include "SocketUtility.h"
 
 #include "Network/IocpEvent.h"
-#include "Network/Session.h"
+#include "Network/Session/Session.h"
 
 namespace
 {

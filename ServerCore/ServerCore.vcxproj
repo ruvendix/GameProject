@@ -153,30 +153,36 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Global\Types.h" />
+    <ClInclude Include="Sources\Network\Buffer\BufferReader.h" />
+    <ClInclude Include="Sources\Network\Buffer\BufferWriter.h" />
     <ClInclude Include="Sources\Network\IocpCore.h" />
     <ClInclude Include="Sources\Network\IocpEvent.h" />
     <ClInclude Include="Sources\Network\IocpObject.h" />
     <ClInclude Include="Sources\Network\Listener.h" />
     <ClInclude Include="Sources\Network\NetworkAddress.h" />
-    <ClInclude Include="Sources\Network\ReceiveBuffer.h" />
-    <ClInclude Include="Sources\Network\SendBuffer.h" />
+    <ClInclude Include="Sources\Network\Buffer\ReceiveBuffer.h" />
+    <ClInclude Include="Sources\Network\Buffer\SendBuffer.h" />
     <ClInclude Include="Sources\Network\Service.h" />
-    <ClInclude Include="Sources\Network\Session.h" />
+    <ClInclude Include="Sources\Network\Session\PacketSession.h" />
+    <ClInclude Include="Sources\Network\Session\Session.h" />
     <ClInclude Include="Sources\Socket\SocketUtility.h" />
     <ClInclude Include="Sources\Pch\Pch.h" />
     <ClInclude Include="Sources\Thread\ThreadPool.h" />
     <ClInclude Include="Sources\Thread\Tls.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\Network\Buffer\BufferReader.cpp" />
+    <ClCompile Include="Sources\Network\Buffer\BufferWriter.cpp" />
     <ClCompile Include="Sources\Network\IocpCore.cpp" />
     <ClCompile Include="Sources\Network\IocpEvent.cpp" />
     <ClCompile Include="Sources\Network\IocpObject.cpp" />
     <ClCompile Include="Sources\Network\Listener.cpp" />
     <ClCompile Include="Sources\Network\NetworkAddress.cpp" />
-    <ClCompile Include="Sources\Network\ReceiveBuffer.cpp" />
-    <ClCompile Include="Sources\Network\SendBuffer.cpp" />
+    <ClCompile Include="Sources\Network\Buffer\ReceiveBuffer.cpp" />
+    <ClCompile Include="Sources\Network\Buffer\SendBuffer.cpp" />
     <ClCompile Include="Sources\Network\Service.cpp" />
-    <ClCompile Include="Sources\Network\Session.cpp" />
+    <ClCompile Include="Sources\Network\Session\PacketSession.cpp" />
+    <ClCompile Include="Sources\Network\Session\Session.cpp" />
     <ClCompile Include="Sources\Socket\SocketUtility.cpp" />
     <ClCompile Include="Sources\Pch\Pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

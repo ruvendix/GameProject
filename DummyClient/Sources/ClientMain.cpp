@@ -1,5 +1,6 @@
 #include "Pch.h"
 #include "Session/ServerSession.h"
+#include "Packet/ClientPacketHandler.h"
 
 /*
 <클라이언트의 TCP 소켓>
@@ -20,6 +21,8 @@ BOOL WINAPI OnClose_ConsoleHandler(DWORD signal)
 		(signal == CTRL_LOGOFF_EVENT) ||
 		(signal == CTRL_SHUTDOWN_EVENT))
 	{
+		RxClientPacketHandler::I()->Destory();
+
 		g_spClientService->GetIocpCorePtr()->Cleanup();
 		g_threadPool.Cleanup();
 		RxSocketUtility::Cleanup();
