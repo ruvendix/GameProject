@@ -58,7 +58,7 @@ void RxThreadPool::StartupTls()
 	// Critical section
 	{
 		std::lock_guard<std::mutex> lock(m_mutex); // Tls도 크리티컬 섹션에 넣어야 함...
-		uint32 hashValue = threadIdHash(std::this_thread::get_id());
+		uint32 hashValue = static_cast<uint32>(threadIdHash(std::this_thread::get_id()));
 		//printf("ThreadId: %u\n", hashValue);
 		m_threadIds.push_back(hashValue);
 	}

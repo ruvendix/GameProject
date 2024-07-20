@@ -25,6 +25,15 @@
     <ClCompile Include="Sources\Packet\ServerPacketHandler.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\Packet\ProtoBuffer\Enum.pb.cc">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Packet\ProtoBuffer\Protocol.pb.cc">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Packet\ProtoBuffer\Struct.pb.cc">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sources\Pch\Pch.h">
@@ -34,5 +43,8 @@
     <ClInclude Include="Sources\Session\GameSessionManager.h" />
     <ClInclude Include="Sources\Global\Types.h" />
     <ClInclude Include="Sources\Packet\ServerPacketHandler.h" />
+    <ClInclude Include="Sources\Packet\ProtoBuffer\Enum.pb.h" />
+    <ClInclude Include="Sources\Packet\ProtoBuffer\Protocol.pb.h" />
+    <ClInclude Include="Sources\Packet\ProtoBuffer\Struct.pb.h" />
   </ItemGroup>
 </Project>

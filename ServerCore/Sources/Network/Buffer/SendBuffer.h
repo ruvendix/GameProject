@@ -8,7 +8,7 @@ public:
 
 	BYTE* GetBufferPointer() { return m_buffer.data(); }
 	uint32 GetWriteSize() const { return m_writeSize; }
-	uint32 GetCapacity() const { return m_buffer.size(); }
+	size_t GetCapacity() const { return m_buffer.size(); }
 
 	void CopyBuffer(void* buffer, uint32 size);
 	void SetWriteSize(uint32 writeSize) { m_writeSize = writeSize; }

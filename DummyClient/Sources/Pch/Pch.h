@@ -18,8 +18,15 @@
 
 #include "ServerCore/Sources/Socket/SocketUtility.h"
 
+// 생성된 소스 파일이 무조건 프로젝트에 있어야 함!
+#include "Packet/ProtoBuffer/Enum.pb.h"
+#include "Packet/ProtoBuffer/Struct.pb.h"
+#include "Packet/ProtoBuffer/Protocol.pb.h"
+
 #ifdef _DEBUG
 #pragma comment(lib, "ServerCore_Debug.lib")
+#pragma comment(lib, "libprotobufd.lib")
 #else
 #pragma comment(lib, "ServerCore.lib")
+#pragma comment(lib, "libprotobuf.lib")
 #endif

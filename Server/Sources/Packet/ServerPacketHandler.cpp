@@ -47,27 +47,19 @@ void RxServerPacketHandler::HandlePacket(BYTE* buffer, int32 numOfBytes)
 
 RxSendBufferPtr RxServerPacketHandler::MakeTestPacket(uint64 id, uint32 hp, uint16 attack, const std::vector<BuffData>& vecBuff)
 {
-	RxSendBufferPtr spSendBuffer = std::make_shared<RxSendBuffer>(4096);
+	Protocol::S_TEST packet;
+	packet.set_id(10);
+	packet.set_hp(100);
+	packet.set_attack(10);
 
-	RxBufferWriter bufferWriter(spSendBuffer->GetBufferPointer(), spSendBuffer->GetCapacity(), 0);
+	Protocol::BuffData* pBuffData = packet.add_buffs();
+	pBuffData->set_buffid(100);
+	pBuffData->set_remaintime(1.2f);
+	pBuffData->add_victims(10);
 
-	// 헤더부터 확보
-	RxPacketHeader* pPacketHeader = bufferWriter.Reserve<RxPacketHeader>();
+	pBuffData = packet.add_buffs();
+	pBuffData->set_buffid(200);
+	pBuffData->set_remaintime(2.2f);
 
-	// id(uint64), 체력(uint32), 공격력(uint16)
-	bufferWriter << id << hp << attack;
-
-	// 가변 데이터
-	bufferWriter << static_cast<uint16>(vecBuff.size());
-	for (const BuffData& buffData : vecBuff)
-	{
-		bufferWriter << buffData.buffId << buffData.remainTime;
-	}
-
-	// 현재까지 쓴 위치가 바이트단위로는 크기를 의미
-	pPacketHeader->packetSize = bufferWriter.GetCurrentWritePos();
-	pPacketHeader->protocolId = 1;
-
-	spSendBuffer->SetWriteSize(pPacketHeader->packetSize);
-	return spSendBuffer;
+	return MakeSendBuffer(packet, 1);
 }

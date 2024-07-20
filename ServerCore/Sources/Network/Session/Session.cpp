@@ -88,7 +88,7 @@ bool RxSession::Connect()
 	return RegisterConnect();
 }
 
-void RxSession::Disconnect(const std::wstring_view& wszReason)
+void RxSession::Disconnect(const std::wstring& wstrReason)
 {
 	/*
 	exchagne()는 넣은 값으로 변경하는데
@@ -107,9 +107,9 @@ void RxSession::Disconnect(const std::wstring_view& wszReason)
 		return;
 	}
 
-	std::wstring wstrReason = wszReason.data();
-	wstrReason += L" (접속 중인 클라이언트 강제로 중단)\n";
-	wprintf_s(wstrReason.c_str());
+	std::wstring wstrTempReason = wstrReason.data();
+	wstrTempReason += L" (접속 중인 클라이언트 강제로 중단)\n";
+	wprintf_s(wstrTempReason.c_str());
 
 	const RxSessionPtr& spThisSession = std::dynamic_pointer_cast<RxSession>(shared_from_this());
 	GET_OWNER_PTR(m_spOwner)->ReleaseSession(spThisSession);
@@ -240,7 +240,7 @@ void RxSession::RegisterSend()
 	}
 
 	DWORD dwNumOfBytes = 0;
-	if (::WSASend(m_socket, vecWsaBuffer.data(), vecWsaBuffer.size(),
+	if (::WSASend(m_socket, vecWsaBuffer.data(), static_cast<DWORD>(vecWsaBuffer.size()),
 			&dwNumOfBytes, 0, m_pSendEvent->GetOverlapped(), nullptr) == SOCKET_ERROR)
 	{
 		int32 errorCode = HandleLastError();

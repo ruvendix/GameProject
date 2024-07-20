@@ -67,27 +67,22 @@ void RxClientPacketHandler::HandlePacket(BYTE* buffer, int32 numOfBytes)
 
 void RxClientPacketHandler::PasingTestPacket(BYTE* buffer, int32 numOfBytes)
 {
-	RxBufferReader bufferReader(buffer, numOfBytes, 0);
+	RxPacketHeader* pPacketHeader = reinterpret_cast<RxPacketHeader*>(buffer);
+	uint16 packetSize = pPacketHeader->packetSize;
+	uint16 protocolId = pPacketHeader->protocolId;
 
-	RxPacketHeader packetHeader;
-	bufferReader.Read(&packetHeader);
+	Protocol::S_TEST packet;
+	packet.ParseFromArray(&pPacketHeader[1], packetSize - sizeof(RxPacketHeader));
 
-	TestPacket testPacket;	
-	bufferReader >> testPacket.id >> testPacket.hp >> testPacket.attack;
-	printf("(Id: %llu, Hp: %d, Attack: %d)\n", testPacket.id, testPacket.hp, testPacket.attack);
+	uint64 id = packet.id();
+	uint32 hp = packet.hp();
+	uint32 attack = packet.attack();
+	printf("(Id: %llu, Hp: %d, Attack: %d)\n", id, hp, attack);
 
-	uint16 buffCount = 0;
-	bufferReader >> buffCount;
-
-	std::vector<BuffData> vecBuff(buffCount);
-	for (int32 i = 0; i < buffCount; i++)
+	printf("Buff Count: %d\n", packet.buffs_size());
+	for (int32 i = 0; i < packet.buffs_size(); ++i)
 	{
-		bufferReader >> vecBuff[i].buffId >> vecBuff[i].remainTime;
-	}
-
-	printf("BufCount: %d\n", buffCount);
-	for (int32 i = 0; i < buffCount; i++)
-	{
-		printf("BufInfo: (Id: %llu, remainTime: %f)\n", vecBuff[i].buffId, vecBuff[i].remainTime);
+		const Protocol::BuffData& buffData = packet.buffs(i);
+		printf("BufInfo: (Id: %llu, remainTime: %f)\n", buffData.buffid(), buffData.remaintime());
 	}
 }

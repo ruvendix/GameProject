@@ -10,9 +10,9 @@ public:
 
 	// 일 들어왔다!
 	template <typename TTaskFunc, typename... Args>
-	std::future<std::invoke_result_t<TTaskFunc, Args...>> AddTask(TTaskFunc&& taskFunc, Args... args)
+	std::future<std::result_of_t<TTaskFunc(Args...)>> AddTask(TTaskFunc&& taskFunc, Args... args)
 	{
-		using ReturnType = std::invoke_result_t<TTaskFunc, Args...>;
+		using ReturnType = std::result_of_t<TTaskFunc(Args...)>;
 		using PackagedTask = std::packaged_task<ReturnType(void)>;
 
 		/*

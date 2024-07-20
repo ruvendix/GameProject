@@ -20,7 +20,7 @@ public:
 	// 가장 큰 업무 단위
 	void Send(const RxSendBufferPtr& spSendBuffer);
 	bool Connect();
-	void Disconnect(const std::wstring_view& wszReason);
+	void Disconnect(const std::wstring& wstrReason);
 
 	bool RegisterConnect();
 	bool RegisterDisconnect();

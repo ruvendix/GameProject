@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\lite_arena_unittest.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\arena_test_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\map_lite_test_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\test_util_lite.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\map_lite_unittest.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\unittest_import_lite.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\unittest_import_public_lite.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\unittest_lite.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\src\google\protobuf\unittest_no_arena_lite.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\Solution\CMakeFiles\9a58d7462a2a4bb6a9847b00580674e4\map_lite_unittest.pb.cc.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\Solution\CMakeFiles\9a58d7462a2a4bb6a9847b00580674e4\unittest_import_lite.pb.cc.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\Solution\CMakeFiles\9a58d7462a2a4bb6a9847b00580674e4\unittest_import_public_lite.pb.cc.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\Solution\CMakeFiles\9a58d7462a2a4bb6a9847b00580674e4\unittest_lite.pb.cc.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\Solution\CMakeFiles\9a58d7462a2a4bb6a9847b00580674e4\unittest_no_arena_lite.pb.cc.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtoBufferPackage\protobuf-3.11.4\cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E383852A-E7DA-39D7-8F9B-281C100F5E88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CA8D7037-6EDF-3816-923B-36C98C876101}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/libprotobuf-lite.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/libprotobuf.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/libprotoc.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/protoc.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/gmock.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/gmock_main.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/tests.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/test_plugin.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/lite-test.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/lite-arena-test.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/check.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/INSTALL.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/ALL_BUILD.dir
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtoBufferPackage/Solution/CMakeFiles/ZERO_CHECK.dir
