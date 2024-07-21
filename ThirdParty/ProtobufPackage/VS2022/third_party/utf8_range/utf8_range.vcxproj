@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B5D18428-4CAD-3E18-9799-970A7FAB1F7C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>utf8_range</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">utf8_range.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">utf8_range</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">utf8_range.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">utf8_range</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">utf8_range.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">utf8_range</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">utf8_range.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">utf8_range</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/utf8_range/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range.pc.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/utf8_range/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range.pc.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/utf8_range/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range.pc.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/utf8_range/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\cmake\utf8_range.pc.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range\utf8_range.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\ZERO_CHECK.vcxproj">
+      <Project>{90AA6E25-B964-3479-9634-5986CA7C67B8}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

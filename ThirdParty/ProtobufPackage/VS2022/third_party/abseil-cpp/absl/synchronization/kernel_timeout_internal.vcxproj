@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6A1C4C54-2C9A-3E3B-AF5A-4C18B036AD3F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>kernel_timeout_internal</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kernel_timeout_internal.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">absl_kernel_timeout_internal</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kernel_timeout_internal.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">absl_kernel_timeout_internal</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">kernel_timeout_internal.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">absl_kernel_timeout_internal</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">kernel_timeout_internal.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">absl_kernel_timeout_internal</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4005;4068;4180;4244;4267;4503;4800</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4005;4068;4180;4244;4267;4503;4800</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4005;4068;4180;4244;4267;4503;4800</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4005;4068;4180;4244;4267;4503;4800</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NOMINMAX;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ENABLE_EXTENDED_ALIGNED_STORAGE;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp\absl\synchronization\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/absl/synchronization/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/abseil-cpp/absl/synchronization/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/absl/synchronization/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/abseil-cpp/absl/synchronization/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/absl/synchronization/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/abseil-cpp/absl/synchronization/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/absl/synchronization/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/third_party/abseil-cpp/absl/synchronization/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp\absl\synchronization\internal\kernel_timeout.cc" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp\absl\synchronization\internal\kernel_timeout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\ZERO_CHECK.vcxproj">
+      <Project>{90AA6E25-B964-3479-9634-5986CA7C67B8}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\base.vcxproj">
+      <Project>{BA569E24-4795-3779-8A4C-E3A76BEBC910}</Project>
+      <Name>base</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\time\civil_time.vcxproj">
+      <Project>{2AF80849-9819-33B7-9DB8-9F6C54C9583A}</Project>
+      <Name>civil_time</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\numeric\int128.vcxproj">
+      <Project>{A890432B-5DE7-38EC-B5FE-776CF36E5984}</Project>
+      <Name>int128</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\log_severity.vcxproj">
+      <Project>{352D8AF2-0945-3249-B958-3DABEB20D1BA}</Project>
+      <Name>log_severity</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\raw_logging_internal.vcxproj">
+      <Project>{7156EBD5-407D-3906-A939-A104B987AE22}</Project>
+      <Name>raw_logging_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\spinlock_wait.vcxproj">
+      <Project>{24323F0A-6F48-3741-84C2-F2D09E5642E9}</Project>
+      <Name>spinlock_wait</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\string_view.vcxproj">
+      <Project>{F21917D4-9ACC-3AFD-A109-C817E3A5B508}</Project>
+      <Name>string_view</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\strings.vcxproj">
+      <Project>{94F96BF3-BDBE-32F8-8DD8-D78F680A918B}</Project>
+      <Name>strings</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\strings_internal.vcxproj">
+      <Project>{4B0C9F3A-B4A5-3A40-84D9-D70C3E65BE31}</Project>
+      <Name>strings_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\throw_delegate.vcxproj">
+      <Project>{5E449B5F-E2CE-3F72-9A2E-8AE4E8077000}</Project>
+      <Name>throw_delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\time\time.vcxproj">
+      <Project>{F93E1B2C-770A-386E-BBB9-48BE8355032A}</Project>
+      <Name>time</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\time\time_zone.vcxproj">
+      <Project>{FF4FAFFA-E7F5-3DC2-81EE-C47D5A99C5D9}</Project>
+      <Name>time_zone</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

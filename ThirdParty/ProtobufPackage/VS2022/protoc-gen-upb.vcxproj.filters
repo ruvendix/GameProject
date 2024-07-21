@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\common.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\file_layout.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\mangle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\names.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\protoc-gen-upb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake\google\protobuf\compiler\plugin.upb_minitable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\file_layout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\mangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\names.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake\google\protobuf\compiler\plugin.upb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake\google\protobuf\compiler\plugin.upb_minitable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\version.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C2BC2884-C0BD-386F-A41C-CA1FE7716799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{62253522-059E-3FE6-BEF0-ED18F6068D47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

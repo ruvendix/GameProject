@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{89456B78-6F7D-3AA2-8C8F-47B9DF1CE0B2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>protoc-gen-upb</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">protoc-gen-upb.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">protoc-gen-upb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">protoc-gen-upb.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">protoc-gen-upb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">protoc-gen-upb.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">protoc-gen-upb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">protoc-gen-upb.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">protoc-gen-upb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>Debug\libprotobufd.lib;Debug\libupbd.lib;third_party\abseil-cpp\absl\base\Debug\absl_base.lib;third_party\abseil-cpp\absl\strings\Debug\absl_cord.lib;third_party\abseil-cpp\absl\log\Debug\absl_die_if_null.lib;third_party\abseil-cpp\absl\hash\Debug\absl_hash.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_initialize.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_globals.lib;third_party\abseil-cpp\absl\base\Debug\absl_log_severity.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_distributions.lib;third_party\abseil-cpp\absl\status\Debug\absl_status.lib;third_party\abseil-cpp\absl\status\Debug\absl_statusor.lib;third_party\abseil-cpp\absl\strings\Debug\absl_strings.lib;third_party\abseil-cpp\absl\synchronization\Debug\absl_synchronization.lib;third_party\abseil-cpp\absl\time\Debug\absl_time.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_check_op.lib;third_party\abseil-cpp\absl\debugging\Debug\absl_leak_check.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_conditions.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_message.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_nullguard.lib;third_party\abseil-cpp\absl\debugging\Debug\absl_examine_stack.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_format.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_proto.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_log_sink_set.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_sink.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_entry.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_internal.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_marshalling.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_reflection.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_config.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_program_name.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_private_handle_accessor.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_commandlineflag.lib;third_party\abseil-cpp\absl\flags\Debug\absl_flags_commandlineflag_internal.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_globals.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_globals.lib;third_party\abseil-cpp\absl\log\Debug\absl_vlog_config_internal.lib;third_party\abseil-cpp\absl\log\Debug\absl_log_internal_fnmatch.lib;third_party\abseil-cpp\absl\container\Debug\absl_raw_hash_set.lib;third_party\abseil-cpp\absl\hash\Debug\absl_hash.lib;third_party\abseil-cpp\absl\hash\Debug\absl_city.lib;third_party\abseil-cpp\absl\hash\Debug\absl_low_level_hash.lib;third_party\abseil-cpp\absl\container\Debug\absl_hashtablez_sampler.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_distributions.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_seed_sequences.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_pool_urbg.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_randen.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_randen_hwaes.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_randen_hwaes_impl.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_randen_slow.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_platform.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_internal_seed_material.lib;third_party\abseil-cpp\absl\random\Debug\absl_random_seed_gen_exception.lib;third_party\abseil-cpp\absl\status\Debug\absl_status.lib;third_party\abseil-cpp\absl\strings\Debug\absl_cord.lib;third_party\abseil-cpp\absl\strings\Debug\absl_cordz_info.lib;third_party\abseil-cpp\absl\strings\Debug\absl_cord_internal.lib;third_party\abseil-cpp\absl\strings\Debug\absl_cordz_functions.lib;third_party\abseil-cpp\absl\profiling\Debug\absl_exponential_biased.lib;third_party\abseil-cpp\absl\strings\Debug\absl_cordz_handle.lib;third_party\abseil-cpp\absl\crc\Debug\absl_crc_cord_state.lib;third_party\abseil-cpp\absl\crc\Debug\absl_crc32c.lib;third_party\abseil-cpp\absl\crc\Debug\absl_crc_internal.lib;third_party\abseil-cpp\absl\crc\Debug\absl_crc_cpu_detect.lib;third_party\abseil-cpp\absl\types\Debug\absl_bad_optional_access.lib;third_party\abseil-cpp\absl\base\Debug\absl_strerror.lib;third_party\abseil-cpp\absl\strings\Debug\absl_str_format_internal.lib;third_party\abseil-cpp\absl\synchronization\Debug\absl_synchronization.lib;third_party\abseil-cpp\absl\debugging\Debug\absl_stacktrace.lib;third_party\abseil-cpp\absl\debugging\Debug\absl_symbolize.lib;third_party\abseil-cpp\absl\debugging\Debug\absl_debugging_internal.lib;third_party\abseil-cpp\absl\debugging\Debug\absl_demangle_internal.lib;third_party\abseil-cpp\absl\synchronization\Debug\absl_graphcycles_internal.lib;third_party\abseil-cpp\absl\synchronization\Debug\absl_kernel_timeout_internal.lib;third_party\abseil-cpp\absl\base\Debug\absl_malloc_internal.lib;third_party\abseil-cpp\absl\time\Debug\absl_time.lib;third_party\abseil-cpp\absl\time\Debug\absl_civil_time.lib;third_party\abseil-cpp\absl\time\Debug\absl_time_zone.lib;third_party\abseil-cpp\absl\types\Debug\absl_bad_variant_access.lib;third_party\utf8_range\Debug\utf8_validity.lib;third_party\abseil-cpp\absl\strings\Debug\absl_strings.lib;third_party\abseil-cpp\absl\numeric\Debug\absl_int128.lib;third_party\abseil-cpp\absl\strings\Debug\absl_strings_internal.lib;third_party\abseil-cpp\absl\strings\Debug\absl_string_view.lib;third_party\abseil-cpp\absl\base\Debug\absl_base.lib;third_party\abseil-cpp\absl\base\Debug\absl_spinlock_wait.lib;third_party\abseil-cpp\absl\base\Debug\absl_throw_delegate.lib;third_party\abseil-cpp\absl\base\Debug\absl_raw_logging_internal.lib;third_party\abseil-cpp\absl\base\Debug\absl_log_severity.lib;-ignore:4221;third_party\utf8_range\Debug\utf8_range.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/Debug/protoc-gen-upb.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/Debug/protoc-gen-upb.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>Release\libprotobuf.lib;Release\libupb.lib;third_party\abseil-cpp\absl\base\Release\absl_base.lib;third_party\abseil-cpp\absl\strings\Release\absl_cord.lib;third_party\abseil-cpp\absl\log\Release\absl_die_if_null.lib;third_party\abseil-cpp\absl\hash\Release\absl_hash.lib;third_party\abseil-cpp\absl\log\Release\absl_log_initialize.lib;third_party\abseil-cpp\absl\log\Release\absl_log_globals.lib;third_party\abseil-cpp\absl\base\Release\absl_log_severity.lib;third_party\abseil-cpp\absl\random\Release\absl_random_distributions.lib;third_party\abseil-cpp\absl\status\Release\absl_status.lib;third_party\abseil-cpp\absl\status\Release\absl_statusor.lib;third_party\abseil-cpp\absl\strings\Release\absl_strings.lib;third_party\abseil-cpp\absl\synchronization\Release\absl_synchronization.lib;third_party\abseil-cpp\absl\time\Release\absl_time.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_check_op.lib;third_party\abseil-cpp\absl\debugging\Release\absl_leak_check.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_conditions.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_message.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_nullguard.lib;third_party\abseil-cpp\absl\debugging\Release\absl_examine_stack.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_format.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_proto.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_log_sink_set.lib;third_party\abseil-cpp\absl\log\Release\absl_log_sink.lib;third_party\abseil-cpp\absl\log\Release\absl_log_entry.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_internal.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_marshalling.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_reflection.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_config.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_program_name.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_private_handle_accessor.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_commandlineflag.lib;third_party\abseil-cpp\absl\flags\Release\absl_flags_commandlineflag_internal.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_globals.lib;third_party\abseil-cpp\absl\log\Release\absl_log_globals.lib;third_party\abseil-cpp\absl\log\Release\absl_vlog_config_internal.lib;third_party\abseil-cpp\absl\log\Release\absl_log_internal_fnmatch.lib;third_party\abseil-cpp\absl\container\Release\absl_raw_hash_set.lib;third_party\abseil-cpp\absl\hash\Release\absl_hash.lib;third_party\abseil-cpp\absl\hash\Release\absl_city.lib;third_party\abseil-cpp\absl\hash\Release\absl_low_level_hash.lib;third_party\abseil-cpp\absl\container\Release\absl_hashtablez_sampler.lib;third_party\abseil-cpp\absl\random\Release\absl_random_distributions.lib;third_party\abseil-cpp\absl\random\Release\absl_random_seed_sequences.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_pool_urbg.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_randen.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_randen_hwaes.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_randen_hwaes_impl.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_randen_slow.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_platform.lib;third_party\abseil-cpp\absl\random\Release\absl_random_internal_seed_material.lib;third_party\abseil-cpp\absl\random\Release\absl_random_seed_gen_exception.lib;third_party\abseil-cpp\absl\status\Release\absl_status.lib;third_party\abseil-cpp\absl\strings\Release\absl_cord.lib;third_party\abseil-cpp\absl\strings\Release\absl_cordz_info.lib;third_party\abseil-cpp\absl\strings\Release\absl_cord_internal.lib;third_party\abseil-cpp\absl\strings\Release\absl_cordz_functions.lib;third_party\abseil-cpp\absl\profiling\Release\absl_exponential_biased.lib;third_party\abseil-cpp\absl\strings\Release\absl_cordz_handle.lib;third_party\abseil-cpp\absl\crc\Release\absl_crc_cord_state.lib;third_party\abseil-cpp\absl\crc\Release\absl_crc32c.lib;third_party\abseil-cpp\absl\crc\Release\absl_crc_internal.lib;third_party\abseil-cpp\absl\crc\Release\absl_crc_cpu_detect.lib;third_party\abseil-cpp\absl\types\Release\absl_bad_optional_access.lib;third_party\abseil-cpp\absl\base\Release\absl_strerror.lib;third_party\abseil-cpp\absl\strings\Release\absl_str_format_internal.lib;third_party\abseil-cpp\absl\synchronization\Release\absl_synchronization.lib;third_party\abseil-cpp\absl\debugging\Release\absl_stacktrace.lib;third_party\abseil-cpp\absl\debugging\Release\absl_symbolize.lib;third_party\abseil-cpp\absl\debugging\Release\absl_debugging_internal.lib;third_party\abseil-cpp\absl\debugging\Release\absl_demangle_internal.lib;third_party\abseil-cpp\absl\synchronization\Release\absl_graphcycles_internal.lib;third_party\abseil-cpp\absl\synchronization\Release\absl_kernel_timeout_internal.lib;third_party\abseil-cpp\absl\base\Release\absl_malloc_internal.lib;third_party\abseil-cpp\absl\time\Release\absl_time.lib;third_party\abseil-cpp\absl\time\Release\absl_civil_time.lib;third_party\abseil-cpp\absl\time\Release\absl_time_zone.lib;third_party\abseil-cpp\absl\types\Release\absl_bad_variant_access.lib;third_party\utf8_range\Release\utf8_validity.lib;third_party\abseil-cpp\absl\strings\Release\absl_strings.lib;third_party\abseil-cpp\absl\numeric\Release\absl_int128.lib;third_party\abseil-cpp\absl\strings\Release\absl_strings_internal.lib;third_party\abseil-cpp\absl\strings\Release\absl_string_view.lib;third_party\abseil-cpp\absl\base\Release\absl_base.lib;third_party\abseil-cpp\absl\base\Release\absl_spinlock_wait.lib;third_party\abseil-cpp\absl\base\Release\absl_throw_delegate.lib;third_party\abseil-cpp\absl\base\Release\absl_raw_logging_internal.lib;third_party\abseil-cpp\absl\base\Release\absl_log_severity.lib;-ignore:4221;third_party\utf8_range\Release\utf8_range.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/Release/protoc-gen-upb.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/Release/protoc-gen-upb.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>MinSizeRel\libprotobuf.lib;MinSizeRel\libupb.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_base.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_cord.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_die_if_null.lib;third_party\abseil-cpp\absl\hash\MinSizeRel\absl_hash.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_initialize.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_globals.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_log_severity.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_distributions.lib;third_party\abseil-cpp\absl\status\MinSizeRel\absl_status.lib;third_party\abseil-cpp\absl\status\MinSizeRel\absl_statusor.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_strings.lib;third_party\abseil-cpp\absl\synchronization\MinSizeRel\absl_synchronization.lib;third_party\abseil-cpp\absl\time\MinSizeRel\absl_time.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_check_op.lib;third_party\abseil-cpp\absl\debugging\MinSizeRel\absl_leak_check.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_conditions.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_message.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_nullguard.lib;third_party\abseil-cpp\absl\debugging\MinSizeRel\absl_examine_stack.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_format.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_proto.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_log_sink_set.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_sink.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_entry.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_internal.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_marshalling.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_reflection.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_config.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_program_name.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_private_handle_accessor.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_commandlineflag.lib;third_party\abseil-cpp\absl\flags\MinSizeRel\absl_flags_commandlineflag_internal.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_globals.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_globals.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_vlog_config_internal.lib;third_party\abseil-cpp\absl\log\MinSizeRel\absl_log_internal_fnmatch.lib;third_party\abseil-cpp\absl\container\MinSizeRel\absl_raw_hash_set.lib;third_party\abseil-cpp\absl\hash\MinSizeRel\absl_hash.lib;third_party\abseil-cpp\absl\hash\MinSizeRel\absl_city.lib;third_party\abseil-cpp\absl\hash\MinSizeRel\absl_low_level_hash.lib;third_party\abseil-cpp\absl\container\MinSizeRel\absl_hashtablez_sampler.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_distributions.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_seed_sequences.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_pool_urbg.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_randen.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_randen_hwaes.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_randen_hwaes_impl.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_randen_slow.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_platform.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_internal_seed_material.lib;third_party\abseil-cpp\absl\random\MinSizeRel\absl_random_seed_gen_exception.lib;third_party\abseil-cpp\absl\status\MinSizeRel\absl_status.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_cord.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_cordz_info.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_cord_internal.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_cordz_functions.lib;third_party\abseil-cpp\absl\profiling\MinSizeRel\absl_exponential_biased.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_cordz_handle.lib;third_party\abseil-cpp\absl\crc\MinSizeRel\absl_crc_cord_state.lib;third_party\abseil-cpp\absl\crc\MinSizeRel\absl_crc32c.lib;third_party\abseil-cpp\absl\crc\MinSizeRel\absl_crc_internal.lib;third_party\abseil-cpp\absl\crc\MinSizeRel\absl_crc_cpu_detect.lib;third_party\abseil-cpp\absl\types\MinSizeRel\absl_bad_optional_access.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_strerror.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_str_format_internal.lib;third_party\abseil-cpp\absl\synchronization\MinSizeRel\absl_synchronization.lib;third_party\abseil-cpp\absl\debugging\MinSizeRel\absl_stacktrace.lib;third_party\abseil-cpp\absl\debugging\MinSizeRel\absl_symbolize.lib;third_party\abseil-cpp\absl\debugging\MinSizeRel\absl_debugging_internal.lib;third_party\abseil-cpp\absl\debugging\MinSizeRel\absl_demangle_internal.lib;third_party\abseil-cpp\absl\synchronization\MinSizeRel\absl_graphcycles_internal.lib;third_party\abseil-cpp\absl\synchronization\MinSizeRel\absl_kernel_timeout_internal.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_malloc_internal.lib;third_party\abseil-cpp\absl\time\MinSizeRel\absl_time.lib;third_party\abseil-cpp\absl\time\MinSizeRel\absl_civil_time.lib;third_party\abseil-cpp\absl\time\MinSizeRel\absl_time_zone.lib;third_party\abseil-cpp\absl\types\MinSizeRel\absl_bad_variant_access.lib;third_party\utf8_range\MinSizeRel\utf8_validity.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_strings.lib;third_party\abseil-cpp\absl\numeric\MinSizeRel\absl_int128.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_strings_internal.lib;third_party\abseil-cpp\absl\strings\MinSizeRel\absl_string_view.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_base.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_spinlock_wait.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_throw_delegate.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_raw_logging_internal.lib;third_party\abseil-cpp\absl\base\MinSizeRel\absl_log_severity.lib;-ignore:4221;third_party\utf8_range\MinSizeRel\utf8_range.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/MinSizeRel/protoc-gen-upb.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/MinSizeRel/protoc-gen-upb.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>RelWithDebInfo\libprotobuf.lib;RelWithDebInfo\libupb.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_base.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_cord.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_die_if_null.lib;third_party\abseil-cpp\absl\hash\RelWithDebInfo\absl_hash.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_initialize.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_globals.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_log_severity.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_distributions.lib;third_party\abseil-cpp\absl\status\RelWithDebInfo\absl_status.lib;third_party\abseil-cpp\absl\status\RelWithDebInfo\absl_statusor.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_strings.lib;third_party\abseil-cpp\absl\synchronization\RelWithDebInfo\absl_synchronization.lib;third_party\abseil-cpp\absl\time\RelWithDebInfo\absl_time.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_check_op.lib;third_party\abseil-cpp\absl\debugging\RelWithDebInfo\absl_leak_check.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_conditions.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_message.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_nullguard.lib;third_party\abseil-cpp\absl\debugging\RelWithDebInfo\absl_examine_stack.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_format.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_proto.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_log_sink_set.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_sink.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_entry.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_internal.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_marshalling.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_reflection.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_config.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_program_name.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_private_handle_accessor.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_commandlineflag.lib;third_party\abseil-cpp\absl\flags\RelWithDebInfo\absl_flags_commandlineflag_internal.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_globals.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_globals.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_vlog_config_internal.lib;third_party\abseil-cpp\absl\log\RelWithDebInfo\absl_log_internal_fnmatch.lib;third_party\abseil-cpp\absl\container\RelWithDebInfo\absl_raw_hash_set.lib;third_party\abseil-cpp\absl\hash\RelWithDebInfo\absl_hash.lib;third_party\abseil-cpp\absl\hash\RelWithDebInfo\absl_city.lib;third_party\abseil-cpp\absl\hash\RelWithDebInfo\absl_low_level_hash.lib;third_party\abseil-cpp\absl\container\RelWithDebInfo\absl_hashtablez_sampler.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_distributions.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_seed_sequences.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_pool_urbg.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_randen.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_randen_hwaes.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_randen_hwaes_impl.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_randen_slow.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_platform.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_internal_seed_material.lib;third_party\abseil-cpp\absl\random\RelWithDebInfo\absl_random_seed_gen_exception.lib;third_party\abseil-cpp\absl\status\RelWithDebInfo\absl_status.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_cord.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_cordz_info.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_cord_internal.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_cordz_functions.lib;third_party\abseil-cpp\absl\profiling\RelWithDebInfo\absl_exponential_biased.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_cordz_handle.lib;third_party\abseil-cpp\absl\crc\RelWithDebInfo\absl_crc_cord_state.lib;third_party\abseil-cpp\absl\crc\RelWithDebInfo\absl_crc32c.lib;third_party\abseil-cpp\absl\crc\RelWithDebInfo\absl_crc_internal.lib;third_party\abseil-cpp\absl\crc\RelWithDebInfo\absl_crc_cpu_detect.lib;third_party\abseil-cpp\absl\types\RelWithDebInfo\absl_bad_optional_access.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_strerror.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_str_format_internal.lib;third_party\abseil-cpp\absl\synchronization\RelWithDebInfo\absl_synchronization.lib;third_party\abseil-cpp\absl\debugging\RelWithDebInfo\absl_stacktrace.lib;third_party\abseil-cpp\absl\debugging\RelWithDebInfo\absl_symbolize.lib;third_party\abseil-cpp\absl\debugging\RelWithDebInfo\absl_debugging_internal.lib;third_party\abseil-cpp\absl\debugging\RelWithDebInfo\absl_demangle_internal.lib;third_party\abseil-cpp\absl\synchronization\RelWithDebInfo\absl_graphcycles_internal.lib;third_party\abseil-cpp\absl\synchronization\RelWithDebInfo\absl_kernel_timeout_internal.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_malloc_internal.lib;third_party\abseil-cpp\absl\time\RelWithDebInfo\absl_time.lib;third_party\abseil-cpp\absl\time\RelWithDebInfo\absl_civil_time.lib;third_party\abseil-cpp\absl\time\RelWithDebInfo\absl_time_zone.lib;third_party\abseil-cpp\absl\types\RelWithDebInfo\absl_bad_variant_access.lib;third_party\utf8_range\RelWithDebInfo\utf8_validity.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_strings.lib;third_party\abseil-cpp\absl\numeric\RelWithDebInfo\absl_int128.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_strings_internal.lib;third_party\abseil-cpp\absl\strings\RelWithDebInfo\absl_string_view.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_base.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_spinlock_wait.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_throw_delegate.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_raw_logging_internal.lib;third_party\abseil-cpp\absl\base\RelWithDebInfo\absl_log_severity.lib;-ignore:4221;third_party\utf8_range\RelWithDebInfo\utf8_range.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/RelWithDebInfo/protoc-gen-upb.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/RelWithDebInfo/protoc-gen-upb.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\common.cc" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\file_layout.cc" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\mangle.cc" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\names.cc" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\protoc-gen-upb.cc" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\common.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\file_layout.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\mangle.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\names.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\plugin.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake\google\protobuf\compiler\plugin.upb.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake\google\protobuf\compiler\plugin.upb_minitable.h" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb_generator\cmake\google\protobuf\compiler\plugin.upb_minitable.c" />
+    <ResourceCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\version.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\ZERO_CHECK.vcxproj">
+      <Project>{90AA6E25-B964-3479-9634-5986CA7C67B8}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\types\bad_optional_access.vcxproj">
+      <Project>{82A5A887-0169-30D2-9A59-63D4EE3AAE04}</Project>
+      <Name>bad_optional_access</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\types\bad_variant_access.vcxproj">
+      <Project>{687E82B2-159A-30E7-ACE2-AE3D304BF38B}</Project>
+      <Name>bad_variant_access</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\base.vcxproj">
+      <Project>{BA569E24-4795-3779-8A4C-E3A76BEBC910}</Project>
+      <Name>base</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\hash\city.vcxproj">
+      <Project>{DB1FE49B-06BC-3A09-BF65-962FB5623EC6}</Project>
+      <Name>city</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\time\civil_time.vcxproj">
+      <Project>{2AF80849-9819-33B7-9DB8-9F6C54C9583A}</Project>
+      <Name>civil_time</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\cord.vcxproj">
+      <Project>{E851A48C-3D1F-3E2F-903C-24B82360C5B3}</Project>
+      <Name>cord</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\cord_internal.vcxproj">
+      <Project>{BB36B3CE-366A-31C7-BA6D-A245F552ADB6}</Project>
+      <Name>cord_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\cordz_functions.vcxproj">
+      <Project>{255080DB-D611-3863-8691-602B5D07CEE6}</Project>
+      <Name>cordz_functions</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\cordz_handle.vcxproj">
+      <Project>{B54ADA66-5C51-3FB7-BF74-7FEA7C8DAA64}</Project>
+      <Name>cordz_handle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\cordz_info.vcxproj">
+      <Project>{F6CB0FA7-DFF5-350A-9008-2E601555D452}</Project>
+      <Name>cordz_info</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\crc\crc32c.vcxproj">
+      <Project>{5552E06E-C403-3907-B3FF-EBE5A31CF62C}</Project>
+      <Name>crc32c</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\crc\crc_cord_state.vcxproj">
+      <Project>{F2637B06-2115-3B4C-AD54-1E54EE177D4E}</Project>
+      <Name>crc_cord_state</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\crc\crc_cpu_detect.vcxproj">
+      <Project>{0EE5EF6F-CC7B-3183-8770-BB516B0F0E7A}</Project>
+      <Name>crc_cpu_detect</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\crc\crc_internal.vcxproj">
+      <Project>{4FF6D7B6-D6B6-3B89-A05C-B6A19F3F32DC}</Project>
+      <Name>crc_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\debugging\debugging_internal.vcxproj">
+      <Project>{4D972504-32F4-39FA-93C3-F25A2F8A6692}</Project>
+      <Name>debugging_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\debugging\demangle_internal.vcxproj">
+      <Project>{C43FE2A6-D989-355C-8B85-1D17A02B80D7}</Project>
+      <Name>demangle_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\die_if_null.vcxproj">
+      <Project>{90010570-00F2-33FD-ADFD-E3DC99112FB6}</Project>
+      <Name>die_if_null</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\debugging\examine_stack.vcxproj">
+      <Project>{009200B4-5C9D-3A9E-8072-42F927DF616E}</Project>
+      <Name>examine_stack</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\profiling\exponential_biased.vcxproj">
+      <Project>{C1F3B43F-F7F7-3FB6-8A9D-B990352F8284}</Project>
+      <Name>exponential_biased</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_commandlineflag.vcxproj">
+      <Project>{378416BE-6219-348B-AB20-3E0AAEF51A10}</Project>
+      <Name>flags_commandlineflag</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_commandlineflag_internal.vcxproj">
+      <Project>{6A1819A9-C826-37EA-808F-48FC8E49E651}</Project>
+      <Name>flags_commandlineflag_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_config.vcxproj">
+      <Project>{525F8096-7E12-3578-8C40-468A8561CD31}</Project>
+      <Name>flags_config</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_internal.vcxproj">
+      <Project>{C54FEB86-0328-366C-A43F-154C61890501}</Project>
+      <Name>flags_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_marshalling.vcxproj">
+      <Project>{14894EF0-49A6-39F3-B292-AC7557E0A104}</Project>
+      <Name>flags_marshalling</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_private_handle_accessor.vcxproj">
+      <Project>{0B840FF4-ADFF-38CF-B939-81434ADBF035}</Project>
+      <Name>flags_private_handle_accessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_program_name.vcxproj">
+      <Project>{93C141E2-DEAE-3630-BEFB-121F7E70FCAA}</Project>
+      <Name>flags_program_name</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\flags\flags_reflection.vcxproj">
+      <Project>{6C677829-F62D-3448-94A0-F31C491E1CCD}</Project>
+      <Name>flags_reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\graphcycles_internal.vcxproj">
+      <Project>{93AA3812-4195-392E-A2D2-C9A08A9D5A12}</Project>
+      <Name>graphcycles_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\hash\hash.vcxproj">
+      <Project>{A9D704D4-AB32-374E-A03F-F7F9B908317A}</Project>
+      <Name>hash</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\container\hashtablez_sampler.vcxproj">
+      <Project>{D0D2A13C-9383-344F-9905-34017B0C1AD6}</Project>
+      <Name>hashtablez_sampler</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\numeric\int128.vcxproj">
+      <Project>{A890432B-5DE7-38EC-B5FE-776CF36E5984}</Project>
+      <Name>int128</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\kernel_timeout_internal.vcxproj">
+      <Project>{6A1C4C54-2C9A-3E3B-AF5A-4C18B036AD3F}</Project>
+      <Name>kernel_timeout_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\debugging\leak_check.vcxproj">
+      <Project>{072F8852-6797-3203-879D-DFA8F45DAB1F}</Project>
+      <Name>leak_check</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\libprotobuf.vcxproj">
+      <Project>{C3D7AD3D-9BEA-32BC-986F-4928CC562086}</Project>
+      <Name>libprotobuf</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\libupb.vcxproj">
+      <Project>{425C156C-6BB5-30F7-9AC6-119F5C69F3ED}</Project>
+      <Name>libupb</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_entry.vcxproj">
+      <Project>{1125FBE4-13D1-3E84-9923-831144F09E31}</Project>
+      <Name>log_entry</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_globals.vcxproj">
+      <Project>{6838755A-8965-316B-AF47-A5FFAD26B8AC}</Project>
+      <Name>log_globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_initialize.vcxproj">
+      <Project>{F2C491E5-9724-38D8-9A66-E6D375AE4C50}</Project>
+      <Name>log_initialize</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_check_op.vcxproj">
+      <Project>{A556012C-D602-36D5-8FED-5807C795CE49}</Project>
+      <Name>log_internal_check_op</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_conditions.vcxproj">
+      <Project>{1EC44DFF-6267-3836-BD82-5323B1FCBAE5}</Project>
+      <Name>log_internal_conditions</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_fnmatch.vcxproj">
+      <Project>{A78963AD-4F32-3903-9FA4-35A929D4DEB4}</Project>
+      <Name>log_internal_fnmatch</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_format.vcxproj">
+      <Project>{B734618E-21A0-38AF-80CF-91602A8ED254}</Project>
+      <Name>log_internal_format</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_globals.vcxproj">
+      <Project>{6E25B4F8-2707-37C4-B703-35D2311C393F}</Project>
+      <Name>log_internal_globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_log_sink_set.vcxproj">
+      <Project>{D88ABA41-1982-34A1-BA87-09CE872EE7A5}</Project>
+      <Name>log_internal_log_sink_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_message.vcxproj">
+      <Project>{5A2E9476-C4B3-3238-881D-873D069BF864}</Project>
+      <Name>log_internal_message</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_nullguard.vcxproj">
+      <Project>{1C3F3199-2B08-3441-9907-610DA1701FB5}</Project>
+      <Name>log_internal_nullguard</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_internal_proto.vcxproj">
+      <Project>{662A9B7A-7313-3D51-9B67-54709BA2439D}</Project>
+      <Name>log_internal_proto</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\log_severity.vcxproj">
+      <Project>{352D8AF2-0945-3249-B958-3DABEB20D1BA}</Project>
+      <Name>log_severity</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\log_sink.vcxproj">
+      <Project>{A6C68C71-57DE-3DD6-B186-B1F36D54FA8B}</Project>
+      <Name>log_sink</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\hash\low_level_hash.vcxproj">
+      <Project>{F1A940C0-A8B2-3C5F-9486-56CD68DE6CCE}</Project>
+      <Name>low_level_hash</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\malloc_internal.vcxproj">
+      <Project>{B1F50578-F97F-3CF7-88C4-4B378307813C}</Project>
+      <Name>malloc_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_distributions.vcxproj">
+      <Project>{950FB650-B6A4-3A7B-9074-FDD4E01019AA}</Project>
+      <Name>random_distributions</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_platform.vcxproj">
+      <Project>{516963E3-E093-3485-A759-E4C9AA211F04}</Project>
+      <Name>random_internal_platform</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_pool_urbg.vcxproj">
+      <Project>{F68088FB-CB72-3DED-9E19-CCE2CCD9BE09}</Project>
+      <Name>random_internal_pool_urbg</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_randen.vcxproj">
+      <Project>{56B531AD-FCEA-35BE-8C34-F49500D3A1B5}</Project>
+      <Name>random_internal_randen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_randen_hwaes.vcxproj">
+      <Project>{3860939C-14E6-3610-83F5-597E42892FA3}</Project>
+      <Name>random_internal_randen_hwaes</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_randen_hwaes_impl.vcxproj">
+      <Project>{9DB932D5-85F2-3378-BDB9-726F735A501B}</Project>
+      <Name>random_internal_randen_hwaes_impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_randen_slow.vcxproj">
+      <Project>{6AC856A1-3C2F-3482-ABA0-4B7355DACC61}</Project>
+      <Name>random_internal_randen_slow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_internal_seed_material.vcxproj">
+      <Project>{1A8E355D-3943-3091-95F8-2A9AD32A785A}</Project>
+      <Name>random_internal_seed_material</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_seed_gen_exception.vcxproj">
+      <Project>{1D12E3FF-4CFD-367E-84E0-2137F6CFB983}</Project>
+      <Name>random_seed_gen_exception</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\random\random_seed_sequences.vcxproj">
+      <Project>{C394B99F-4D3F-3BB5-86F4-892D804A85E7}</Project>
+      <Name>random_seed_sequences</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\container\raw_hash_set.vcxproj">
+      <Project>{532B90E3-BFC0-3815-8F63-98723064FBB0}</Project>
+      <Name>raw_hash_set</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\raw_logging_internal.vcxproj">
+      <Project>{7156EBD5-407D-3906-A939-A104B987AE22}</Project>
+      <Name>raw_logging_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\spinlock_wait.vcxproj">
+      <Project>{24323F0A-6F48-3741-84C2-F2D09E5642E9}</Project>
+      <Name>spinlock_wait</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\debugging\stacktrace.vcxproj">
+      <Project>{98D26098-F2B8-39E4-8144-491D244A33EB}</Project>
+      <Name>stacktrace</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\status\status.vcxproj">
+      <Project>{0C073982-799F-374E-AE3D-780EA83EBE17}</Project>
+      <Name>status</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\status\statusor.vcxproj">
+      <Project>{C714A4AF-AE0C-3DC6-90CB-8E42F4525751}</Project>
+      <Name>statusor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\str_format_internal.vcxproj">
+      <Project>{70BEB3D1-C0CB-3E26-93E6-1B188B1D4CD8}</Project>
+      <Name>str_format_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\strerror.vcxproj">
+      <Project>{87AD9382-8AAE-3A5B-B8FF-A0824304C33E}</Project>
+      <Name>strerror</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\string_view.vcxproj">
+      <Project>{F21917D4-9ACC-3AFD-A109-C817E3A5B508}</Project>
+      <Name>string_view</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\strings.vcxproj">
+      <Project>{94F96BF3-BDBE-32F8-8DD8-D78F680A918B}</Project>
+      <Name>strings</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\strings\strings_internal.vcxproj">
+      <Project>{4B0C9F3A-B4A5-3A40-84D9-D70C3E65BE31}</Project>
+      <Name>strings_internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\debugging\symbolize.vcxproj">
+      <Project>{FDA95FB2-035A-3AAD-B916-D36ABF58EE23}</Project>
+      <Name>symbolize</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\synchronization\synchronization.vcxproj">
+      <Project>{8309C603-C780-3456-8A6A-90F0C86C8B57}</Project>
+      <Name>synchronization</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\base\throw_delegate.vcxproj">
+      <Project>{5E449B5F-E2CE-3F72-9A2E-8AE4E8077000}</Project>
+      <Name>throw_delegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\time\time.vcxproj">
+      <Project>{F93E1B2C-770A-386E-BBB9-48BE8355032A}</Project>
+      <Name>time</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\time\time_zone.vcxproj">
+      <Project>{FF4FAFFA-E7F5-3DC2-81EE-C47D5A99C5D9}</Project>
+      <Name>time_zone</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\utf8_range.vcxproj">
+      <Project>{B5D18428-4CAD-3E18-9799-970A7FAB1F7C}</Project>
+      <Name>utf8_range</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\utf8_validity.vcxproj">
+      <Project>{E2F9437F-C212-3565-8CA8-A1B0982B5C72}</Project>
+      <Name>utf8_validity</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp\absl\log\vlog_config_internal.vcxproj">
+      <Project>{A0DCBA39-5275-30E4-AA65-8F69FF949611}</Project>
+      <Name>vlog_config_internal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

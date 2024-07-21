@@ -1,0 +1,23 @@
+# CMake generation dependency list for this directory.
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/CMake/AbseilDll.cmake
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/CMake/AbseilHelpers.cmake
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/CMake/abslConfig.cmake.in
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/CMakeLists.txt
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/absl/copts/AbseilConfigureCopts.cmake
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/abseil-cpp/absl/copts/GENERATED_AbseilCopts.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/BasicConfigVersion-ExactVersion.cmake.in
+D:/Utility/CMake/share/cmake-3.30/Modules/CMakeDependentOption.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CMakeParseArguments.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CTest.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CTestUseLaunchers.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CheckIncludeFile.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CheckLibraryExists.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/FindPackageMessage.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/FindThreads.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake

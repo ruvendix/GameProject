@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{425C156C-6BB5-30F7-9AC6-119F5C69F3ED}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>libupb</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libupb.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libupbd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libupb.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libupb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libupb.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">libupb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libupb.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">libupb</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8 /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8 /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8 /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8 /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4065;4146;4244;4251;4267;4305;4307;4309;4334;4355;4506;4800;4996</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;GOOGLE_PROTOBUF_CMAKE_BUILD;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) -l0x409</AdditionalOptions>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\third_party\utf8_range;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4221</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Utility\CMake\bin\cmake.exe -SC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf -BC:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022 --check-stamp-file C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/VS2022/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeCXXCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeRCCompiler.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\3.30.1\CMakeSystem.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\abseil-cpp.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\install.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf-lite.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotobuf.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libprotoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\libupb.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config-version.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-config.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-configure-target.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-generate.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-lite.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-module.cmake.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf-options.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protobuf.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\protoc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb.pc.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\upb_generators.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\utf8_range.cmake;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\cmake\version.rc.in;C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\src\file_lists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeDependentOption.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckCSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckIncludeFile.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLibraryExists.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageHandleStandardArgs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindPackageMessage.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindThreads.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\FindZLIB.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckFlagCommonConfig.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckLinkerFlag.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Internal\CheckSourceCompiles.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\Utility\CMake\share\cmake-3.30\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\status.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\hash\common.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\json\decode.c">
+      <ObjectFileName>$(IntDir)/upb/json/decode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\json\encode.c">
+      <ObjectFileName>$(IntDir)/upb/json/encode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\atoi.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\round_trip.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\strtod.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\unicode.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mem\alloc.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mem\arena.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\accessors.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\array.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\compare.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\compat.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\copy.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\compare_unknown.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\extension.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\iterator.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\message.c">
+      <ObjectFileName>$(IntDir)/upb/message/internal/message.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\map.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\map_sorter.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\merge.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\message.c">
+      <ObjectFileName>$(IntDir)/upb/message/message.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\build_enum.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\decode.c">
+      <ObjectFileName>$(IntDir)/upb/mini_descriptor/decode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\base92.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\encode.c">
+      <ObjectFileName>$(IntDir)/upb/mini_descriptor/internal/encode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\link.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\extension_registry.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\message.c">
+      <ObjectFileName>$(IntDir)/upb/mini_table/internal/message.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\message.c">
+      <ObjectFileName>$(IntDir)/upb/mini_table/message.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\def_pool.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\def_type.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\desc_state.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\enum_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\enum_reserved_range.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\enum_value_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\extension_range.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\field_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\file_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\def_builder.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\strdup2.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message.c">
+      <ObjectFileName>$(IntDir)/upb/reflection/message.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message_reserved_range.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\method_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\oneof_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\service_def.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\text\encode.c">
+      <ObjectFileName>$(IntDir)/upb/text/encode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\text\internal\encode.c">
+      <ObjectFileName>$(IntDir)/upb/text/internal/encode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\util\def_to_proto.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\util\required_fields.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\decode.c">
+      <ObjectFileName>$(IntDir)/upb/wire/decode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\encode.c">
+      <ObjectFileName>$(IntDir)/upb/wire/encode.c.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\eps_copy_input_stream.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\internal\decode_fast.c" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\reader.c" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\descriptor_constants.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\internal\endian.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\internal\log2.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\status.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\status.hpp" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\string_view.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\base\upcast.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\generated_code_support.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\hash\common.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\hash\int_table.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\hash\str_table.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\json\decode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\json\encode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\atoi.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\round_trip.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\strtod.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\lex\unicode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mem\alloc.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mem\arena.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mem\arena.hpp" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mem\internal\arena.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\accessors.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\array.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\compare.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\compat.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\copy.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\accessors.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\array.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\compare_unknown.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\extension.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\iterator.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\map.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\map_entry.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\map_sorter.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\message.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\tagged_ptr.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\internal\types.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\map.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\map_gencode_util.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\merge.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\message.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\tagged_ptr.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\message\value.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\build_enum.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\decode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\base92.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\decoder.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\encode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\encode.hpp" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\modifiers.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\internal\wire_constants.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_descriptor\link.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\enum.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\extension.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\extension_registry.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\field.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\file.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\enum.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\extension.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\field.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\file.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\message.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\size_log2.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\internal\sub.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\message.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\mini_table\sub.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\port\atomic.h" />
+    <None Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\port\def.inc">
+    </None>
+    <None Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\port\undef.inc">
+    </None>
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\port\vsnprintf_compat.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\common.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\def.hpp" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\def_pool.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\def_type.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\enum_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\enum_reserved_range.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\enum_value_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\extension_range.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\field_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\file_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\def_pool.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\desc_state.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\enum_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\enum_reserved_range.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\enum_value_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\extension_range.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\field_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\file_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\message_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\message_reserved_range.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\method_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\oneof_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\service_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\internal\upb_edition_defaults.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message.hpp" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\message_reserved_range.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\method_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\oneof_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\service_def.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\text\encode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\text\internal\encode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\text\options.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\util\def_to_proto.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\util\required_fields.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\decode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\encode.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\eps_copy_input_stream.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\internal\decode_fast.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\reader.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\wire\types.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake\google\protobuf\descriptor.upb.h" />
+    <ClInclude Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake\google\protobuf\descriptor.upb_minitable.h" />
+    <ClCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\protobuf\upb\reflection\cmake\google\protobuf\descriptor.upb_minitable.c" />
+    <ResourceCompile Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\version.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\ZERO_CHECK.vcxproj">
+      <Project>{90AA6E25-B964-3479-9634-5986CA7C67B8}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\user\Desktop\Backup\Study\Cpp\GameProject\ThirdParty\ProtobufPackage\VS2022\third_party\utf8_range\utf8_range.vcxproj">
+      <Project>{B5D18428-4CAD-3E18-9799-970A7FAB1F7C}</Project>
+      <Name>utf8_range</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

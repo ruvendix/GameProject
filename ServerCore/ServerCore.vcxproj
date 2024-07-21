@@ -66,7 +66,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(SolutionDir)ThirdParty\ProtoBufferPackage\CompileProto.bat"</Command>
+      <Command>call "$(SolutionDir)ThirdParty\ProtobufPackage\CompileProto.bat"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

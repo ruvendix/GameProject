@@ -4,6 +4,7 @@
 #include "Common/Sources/CommonTypes.h"
 #include "Common/Sources/CommonConstant.h"
 #include "Common/Sources/CommonMacro.h"
+#include "Common/Sources/ProtoBuffer/ProtoBufferLibraries.h"
 
 #include "ServerCore/Sources/Global/Types.h"
 #include "ServerCore/Sources/Thread/ThreadPool.h"

@@ -25,9 +25,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcx
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProtoBuffer", "ProtoBuffer", "{726E188E-C132-4189-8AEA-DBFD73EE8792}"
 	ProjectSection(SolutionItems) = preProject
-		Common\Sources\ProtoBuffer\Enum.proto = Common\Sources\ProtoBuffer\Enum.proto
-		Common\Sources\ProtoBuffer\Protocol.proto = Common\Sources\ProtoBuffer\Protocol.proto
-		Common\Sources\ProtoBuffer\Struct.proto = Common\Sources\ProtoBuffer\Struct.proto
+		Common\Sources\ProtoBuffer\ProtoBufferLibraries.h = Common\Sources\ProtoBuffer\ProtoBufferLibraries.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProtoFiles", "ProtoFiles", "{ADD0015E-9129-4979-B8BC-A144EB5BE18A}"
+	ProjectSection(SolutionItems) = preProject
+		Common\Sources\ProtoBuffer\ProtoFiles\Enum.proto = Common\Sources\ProtoBuffer\ProtoFiles\Enum.proto
+		Common\Sources\ProtoBuffer\ProtoFiles\Protocol.proto = Common\Sources\ProtoBuffer\ProtoFiles\Protocol.proto
+		Common\Sources\ProtoBuffer\ProtoFiles\Struct.proto = Common\Sources\ProtoBuffer\ProtoFiles\Struct.proto
 	EndProjectSection
 EndProject
 Global
@@ -54,6 +59,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{726E188E-C132-4189-8AEA-DBFD73EE8792} = {705A5190-4E56-4343-B3EA-6FA72CB8FD15}
+		{ADD0015E-9129-4979-B8BC-A144EB5BE18A} = {726E188E-C132-4189-8AEA-DBFD73EE8792}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0268DDA1-F1D8-45BE-955A-AE8C29E21CC0}

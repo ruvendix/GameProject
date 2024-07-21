@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/CMakeLists.txt
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/cmake/utf8_range-config.cmake.in
+C:/Users/user/Desktop/Backup/Study/Cpp/GameProject/ThirdParty/ProtobufPackage/protobuf/third_party/utf8_range/cmake/utf8_range.pc.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/GNUInstallDirs.cmake
+D:/Utility/CMake/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake
