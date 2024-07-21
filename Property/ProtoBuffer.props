@@ -7,7 +7,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\ProtobufPackage\protobuf\src;$(SolutionDir)ThirdParty\ProtobufPackage\protobuf\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\ProtobufPackage\protobuf\src;$(SolutionDir)ThirdParty\ProtobufPackage\VS2022\third_party\abseil-cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\ProtobufPackage\VS2022\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
